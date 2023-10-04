@@ -1,5 +1,5 @@
 import "../styles/projects.css";
-import AnimationButton from "./ButtonAnimated";
+import AnimationButton from "./ButtonAnimatedComponent";
 import ExternalIcon from "../assets/icons/external-icon.svg";
 import GithubIcon from "../assets/icons/github.svg";
 

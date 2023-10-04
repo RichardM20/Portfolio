@@ -11,7 +11,7 @@ const ProfileFragment = () => {
               Hi, i'm <span>Richard morales</span>
             </p>
             <p>
-              I am a passionate software developer from Colombia, constantly
+              I'm a passionate software developer from Colombia, constantly
               searching for innovative solutions. I enjoy creating and
               perfecting applications that make a difference.
             </p>

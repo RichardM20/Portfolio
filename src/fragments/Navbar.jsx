@@ -11,7 +11,7 @@ const Navbar = () => {
   return (
     <>
       <div className={`navbar ${isOpen && "open"}`}>
-        <p className="nav-logo">Rick dev</p>
+        <p className="nav-logo">Rick</p>
         <div className={`navbar-items ${isOpen && "open"}`}>
           <a href="#home">Home</a>
           <a href="#projects">Projects</a>

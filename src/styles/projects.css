@@ -1,0 +1,136 @@
+.project-container {
+  background-color: #f1f1f1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+}
+.project-container > p {
+  font-weight: bold;
+  font-size: 25px;
+  color: #127bb3;
+  line-height: 1;
+}
+.card-information {
+  width: 100%;
+  height: 300px;
+  max-width: 700px;
+  margin: 50px 0px;
+  padding: 20px 30px;
+ 
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: start;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+.card-information:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  transform: scale(1.01);
+}
+.card-project--image {
+  height: 100%;
+  width: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  width: 100%;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.card-content > p:nth-child(1) {
+  font-size: 25px;
+  font-weight: 600;
+  margin: 0;
+}
+.card-content > p:nth-child(2) {
+  margin: 0;
+  font-size: 0.8em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 400;
+}
+
+.card-project--links {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+}
+.card-project--links > img {
+  margin: 5px;
+}
+.card-project--tech {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+}
+.card-project--tech-images {
+  margin-top: 10px;
+}
+.card-project--tech-images > img {
+  margin-right: 1px;
+  width: 30px;
+  height: 30px;
+}
+.card-project--tech-title {
+  margin: 0;
+  margin-top: 15px;
+  font-weight: 600;
+}
+@media (max-width: 768px) {
+  
+  .card-information {
+    min-width: 200px;
+    max-width: 300px;
+    width: 100%;
+    height: 100%;
+    padding: 10px 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  .card-content {
+    margin-left: 0;
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+  }
+  .card-content > p {
+    text-align: center;
+    font-size: 0.5rem;
+  }
+
+  .card-project--image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  .card-project--tech {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}

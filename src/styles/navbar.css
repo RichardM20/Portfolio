@@ -1,6 +1,5 @@
 .navbar {
   height: 60px;
- 
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -18,7 +17,7 @@
   font-family: "Inter", sans-serif;
   margin: 15px;
   position: relative;
-  font-weight:400;
+ 
   text-decoration: none;
   color: black;
 }
@@ -29,16 +28,9 @@
 .navbar-toggle {
   display: none;
 }
-
-@media (max-width: 1024px) {
-  .profile-container--info > img {
-    margin-left: 150px;
-  }
-  
-}
-
  
-@media (max-width: 768px) {
+ 
+@media (max-width: 852px) {
   .navbar {
     padding-left: 0;
     padding-right: 0;
@@ -59,7 +51,7 @@
   .navbar-toggle {
     display: flex !important;
     flex-direction: column;
-    margin: 15px;
+  
   }
   .navbar-toggle span {
     width: 30px;

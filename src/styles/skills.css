@@ -28,7 +28,7 @@
   height: 45px;
   width: 45px;
 }
-@media (max-width: 768px) {
+@media (max-width: 752px) {
   .skills-container {
     margin: 0;
     margin-bottom: 50px;

@@ -1,9 +1,20 @@
 import React, { useEffect, useState } from "react";
 import CardComponent from "../components/CardProjectsComponent";
+import LoadingComponent from "../components/LoadingComponent";
+import { Pagination, Navigation } from 'swiper/modules';
+import { Swiper, SwiperSlide } from "swiper/react";
+
+
+import "../styles/project.css";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+import "swiper/css/bundle";
 
 const Projects = () => {
- 
   const [projects, setProjects] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -14,34 +25,55 @@ const Projects = () => {
           console.log(JSON.stringify(data));
           setProjects(data);
         } else {
-          setError(true);
+          setError(response.json);
         }
+        setIsLoading(false);
       } catch (error) {
-        setError(true);
+        setIsLoading(false);
+        setError(error);
       }
     };
-
-    fetchData();
+    setTimeout(() => fetchData(), 450);
   }, []);
 
   return (
     <>
-      <div className="projects--container">
-        {projects.map((element) => (
-          <CardComponent
-            title={element.title}
-            content={element.content}
-            demoLink={element.link_demo}
-            githubLink={element.link_github}
-            img={element.image}
-            tech={element.technologies}
-            key={element.id}
-            isPublishedMobile={element.isPublished}
-            appleStoreUrl={element.link_appstore}
-            playStoreUrl={element.link_playstore}
-          />
-        ))}
-      </div>
+      {isLoading ? (
+        <div className="project--container">
+          <LoadingComponent />
+        </div>
+      ) : (
+        <div className="project--container">
+          <p>My Projects</p>
+          <Swiper
+            pagination={{
+              type: "bullets",
+            }}
+            navigation={true}
+            centeredSlides={true}
+      
+            slidesPerView={"auto"}
+            modules={[Pagination, Navigation]}
+            className="mySwiper"
+          >
+            {projects.map((element, index) => (
+              <SwiperSlide key={index}>
+                <CardComponent
+                  title={element.title}
+                  appleStoreUrl={element.link_appstore}
+                  isPublishedMobile={element.isPublished}
+                  playStoreUrl={element.link_playstore}
+                  content={element.content}
+                  demoLink={element.link_demo}
+                  githubLink={element.link_github}
+                  img={element.image}
+                  tech={element.technologies}
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      )}
     </>
   );
 };

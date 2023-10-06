@@ -3,18 +3,20 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
- 
+  min-width: 400px;
   padding-left: 120px;
   padding-right: 120px;
   box-shadow: 0 1px 1px 0px rgba(0, 0, 0, 0.064);
 }
 .nav-logo {
-  font-family: "Inter", sans-serif;
+  font-weight: 600;
   font-size: 20px;
-  color: black;
+  color: #127bb3;
+  cursor: pointer;
 }
+ 
 .navbar a {
-  font-family: "Inter", sans-serif;
+ 
   margin: 15px;
   position: relative;
  

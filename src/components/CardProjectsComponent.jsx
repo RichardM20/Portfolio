@@ -5,6 +5,8 @@ import GithubIcon from "../assets/icons/github.svg";
 
 import PlayStoreIcon from "../assets/icons/gplay.svg";
 import AppleStoreIcon from "../assets/icons/astore.svg";
+import { parseBase64 } from "../utils/base64";
+import { useState } from "react";
 const CardComponent = ({
   title,
   content,
@@ -18,9 +20,8 @@ const CardComponent = ({
 }) => {
   return (
     <>
-      <div className="card-information">
+      <div className="card-container">
         <img src={img} alt="image-project" className="card-project--image" />
-
         <div className="card-content">
           <p className="card-project--title">{title}</p>
           <p className="card-project--information">{content}</p>

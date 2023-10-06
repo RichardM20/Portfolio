@@ -1,11 +1,13 @@
 .project--container {
   background-color: #f1f1f1;
   width: 100%;
+  min-width: 400px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 100px;
+  padding-bottom: 20px;
+  margin-top: 150px;
 }
 
 .swiper {
@@ -35,45 +37,29 @@
 }
 .project--container > p {
   font-weight: bold;
+  text-decoration: underline;
+  text-underline-offset: 10px;
   font-size: 25px;
   color: #127bb3;
   line-height: 1;
+  margin-bottom: 25px;
 }
+.project--container > p:hover {
+  color: rgb(1, 166, 255);
+  cursor: none;
+}
+
 @media (max-width: 752px) {
   .project--container {
-    margin-top: 150px;
+    margin-top: 50px;
   }
-
   .swiper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 100%;
     min-width: 300px;
   }
   .swiper-slide {
     position: absolute;
-    left: calc(30% - 7%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-}
-
-@media (max-width: 375px) {
-  .project--container {
-    margin-top: 150px;
-  }
-
-  .swiper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 350px;
-  }
-  .swiper-slide {
-    position: absolute;
-    left: 7%;
+    left: calc(30% - 15%);
     display: flex;
     justify-content: center;
     align-items: center;

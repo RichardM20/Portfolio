@@ -1,9 +1,9 @@
 import SkillsFragment from "../fragments/SkillsFragment";
 import "../styles/profile.css";
-const ProfileFragment = () => {
+const ProfileFragment = ({id}) => {
   return (
     <>
-      <div className="profile-container">
+      <div id={id} className="profile-container">
         <div className="profile-container--info">
           <div className="profile-container--info-me">
             <p>Flutter Developer</p>
@@ -17,10 +17,7 @@ const ProfileFragment = () => {
             </p>
           </div>
           <div className="profile-container--info-photo">
-            <img src="https://i.pinimg.com/originals/4c/fb/06/4cfb06d09f6fafdfa58b759946d21b02.jpg" />
-            <div className="profile-container--experience-container">
-              <p>+2 Years<br/>Experience</p>
-            </div>
+            <img src="https://avatars.githubusercontent.com/u/64317751?v=4" />
           </div>
         </div>
 

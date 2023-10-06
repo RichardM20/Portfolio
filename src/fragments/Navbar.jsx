@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "../styles/navbar.css";
-const Navbar = () => {
+const Navbar = ({id}) => {
   const [isOpen, setOpen] = useState(false);
 
   const toggleClicked = () => {
@@ -10,7 +10,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className={`navbar ${isOpen && "open"}`}>
+      <div id={id} className={`navbar ${isOpen && "open"}`}>
         <p className="nav-logo">Rick</p>
         <div className={`navbar-items ${isOpen && "open"}`}>
           <a href="#home">Home</a>

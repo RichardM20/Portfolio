@@ -1,0 +1,27 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+.footer-container {
+  width: 100%;
+  min-width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: 10vh;
+  background: linear-gradient(
+    to left bottom,
+    rgb(18, 123, 179),
+    rgb(1, 166, 255)
+  );
+}
+.footer-container > p {
+  font-weight: 500;
+  font-size: 1em;
+  color: white;
+  @media (max-width:720px) {
+    font-size: 0.6em;
+  }
+}

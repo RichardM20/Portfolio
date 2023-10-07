@@ -53,7 +53,8 @@ const projects_local = [
       "Responsive web portfolio developed in React.js with Vite, which consumes an API created in Node.js to retrieve personal projects.",
     technologies: [
       "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1150px-React-icon.svg.png",
-      "https://vitejs.dev/logo-with-shadow.png,https://cdn4.iconfinder.com/data/icons/social-media-logos-6/512/121-css3-512.png",
+      "https://vitejs.dev/logo-with-shadow.png",
+      "https://cdn4.iconfinder.com/data/icons/social-media-logos-6/512/121-css3-512.png",
     ],
     link_github: "https://github.com/RichardM20/Portfolio",
     link_demo: "",

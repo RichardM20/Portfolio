@@ -68,11 +68,11 @@ const RomboContainer = styled.div`
   @media (max-width: 720px) {
     .rombo {
       width: 100%;
-      min-width: 50px;
-      max-width: 50px;
+      min-width: 52px;
+      max-width: 52px;
       height: 100%;
-      min-height: 50px;
-      max-height: 50px;
+      min-height: 52px;
+      max-height: 52px;
     }
     .rombo > img {
       height: 50%;

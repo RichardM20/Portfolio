@@ -7,6 +7,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "../styles/project.css";
 import "swiper/css";
 import "swiper/css/pagination";
+import projects_local from "../utils/bd_local";
 
 const Projects = ({ id }) => {
   const [projects, setProjects] = useState([]);
@@ -15,13 +16,7 @@ const Projects = ({ id }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:3000/projects");
-        if (response.ok) {
-          const data = await response.json();
-          setProjects(data);
-        } else {
-          setError(response.json);
-        }
+        setProjects(projects_local);
         setIsLoading(false);
       } catch (error) {
         setIsLoading(false);

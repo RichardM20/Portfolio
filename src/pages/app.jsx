@@ -7,6 +7,7 @@ import ProjectsFragment from "../fragments/Projetcs";
 
 import "../styles/app.css";
 import GoTopButtonComponent from "../components/GoToTopComponent";
+import { ToastContainer } from "react-toastify";
 function App() {
   return (
     <>
@@ -18,6 +19,7 @@ function App() {
         <ContactFragment id={"contact"} />
         <FooterFragment />
         <GoTopButtonComponent />
+        <ToastContainer />
       </div>
     </>
   );

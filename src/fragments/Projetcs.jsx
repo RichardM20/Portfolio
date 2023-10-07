@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import CardComponent from "../components/CardProjectsComponent";
 import LoadingComponent from "../components/LoadingComponent";
-import { Pagination, Navigation } from "swiper/modules";
+import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "../styles/project.css";
@@ -18,7 +18,6 @@ const Projects = ({ id }) => {
         const response = await fetch("http://localhost:3000/projects");
         if (response.ok) {
           const data = await response.json();
-          console.log(JSON.stringify(data));
           setProjects(data);
         } else {
           setError(response.json);
@@ -40,7 +39,7 @@ const Projects = ({ id }) => {
         </div>
       ) : (
         <div id={id} className="project--container">
-          <p>My Projects</p>
+          <p>Projects</p>
           {projects.length < 1 ? (
             <>
               <div>

@@ -5,8 +5,8 @@ import GithubIcon from "../assets/icons/github.svg";
 
 import PlayStoreIcon from "../assets/icons/gplay.svg";
 import AppleStoreIcon from "../assets/icons/astore.svg";
-import { parseBase64 } from "../utils/base64";
-import { useState } from "react";
+import { ToastContainer } from "react-toastify";
+
 const CardComponent = ({
   title,
   content,
@@ -69,6 +69,7 @@ const CardComponent = ({
             )}
           </div>
         </div>
+       
       </div>
     </>
   );

@@ -1,9 +1,10 @@
 import '../styles/footer.css';
+import texts from '../utils/texts';
 const FooterFragment = () => {
   return (
     <>
       <div className="footer-container">
-        <p>Creadted by Richard Morales | All rights reserved</p>
+        <p>{texts.footer_text}</p>
       </div>
     </>
   );

@@ -9,7 +9,7 @@
 .skills-container > p {
   font-weight: bold;
   font-size: 25px;
-  color: #127bb3;
+  color: var(--primary-color);
 }
 .skills-container--list {
   width: calc(30% - 5%);
@@ -21,12 +21,12 @@
   align-items: center;
   background-color: #fff;
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--box-shadow-card);
   transition: box-shadow 0.3s ease;
 }
 .skills-container--list:hover {
   cursor: none;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--box-shadow-card-medium);
 }
 .skills-container--list img {
   height: 90%;

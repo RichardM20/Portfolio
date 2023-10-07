@@ -45,7 +45,7 @@ const Wrapper = styled.section`
   justify-content: center;
   align-items: center;
   .scroll-button {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--box-shadow-card);
     width: 10px;
     height: 20px;
     z-index: 999;
@@ -62,7 +62,11 @@ const Wrapper = styled.section`
     justify-content: center;
     align-items: center;
     animation: scrollUpDown 2s infinite alternate ease-in-out;
+    &:hover {
+      background-color: #092643;
+    }
   }
+
   .scroll-button > img {
     height: 100%;
 
@@ -73,9 +77,7 @@ const Wrapper = styled.section`
       transform: translateY(0);
     }
     100% {
-      transform: translateY(
-        -10px
-      ); /* Ajusta el valor para la cantidad de movimiento deseada */
+      transform: translateY(-10px);
     }
   }
 `;

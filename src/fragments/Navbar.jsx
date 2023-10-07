@@ -1,24 +1,36 @@
 import { useState } from "react";
+import { Link } from "react-scroll";
 import "../styles/navbar.css";
-const Navbar = ({id}) => {
+import texts from "../utils/texts";
+const Navbar = ({ id }) => {
   const [isOpen, setOpen] = useState(false);
 
   const toggleClicked = () => {
     setOpen(!isOpen);
- 
   };
 
   return (
     <>
       <div id={id} className={`navbar ${isOpen && "open"}`}>
-        <p className="nav-logo">Rick</p>
+        <p className="nav-logo">{texts.nav_name}</p>
         <div className={`navbar-items ${isOpen && "open"}`}>
-          <a href="#home">Home</a>
-          <a href="#projects">Projects</a>
-          <a href="#about">About</a>
-          <a href="#contact">Contact</a>
+          <Link id="navbar-item" to="home" onClick={() => setOpen(false)}>
+            {texts.nav_home}
+          </Link>
+          <Link id="navbar-item" to="projects" onClick={() => setOpen(false)}>
+         {texts.nav_projects}
+          </Link>
+          <Link id="navbar-item" to="about" onClick={() => setOpen(false)}>
+         {texts.nav_about}
+          </Link>
+          <Link id="navbar-item" to="contact" onClick={() => setOpen(false)}>
+         {texts.nav_contact}
+          </Link>
         </div>
-        <div className={`navbar-toggle ${isOpen && "open"}`} onClick={toggleClicked}>
+        <div
+          className={`navbar-toggle ${isOpen && "open"}`}
+          onClick={toggleClicked}
+        >
           <span></span>
           <span></span>
           <span></span>

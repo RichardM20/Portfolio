@@ -13,15 +13,13 @@
   font-weight: bold;
   font-size: 25px;
   text-decoration: underline;
-  color: #127bb3;
+  color: var(--primary-color);
   text-underline-offset: 10px;
- 
 }
 .about-me--container > p:hover {
-  color: rgb(1, 166, 255);
+  color: var(--primary-color-light);
 
   cursor: none;
- 
 }
 .about-me--card {
   width: 100%;
@@ -33,7 +31,7 @@
   color: #363636;
   background-color: #fff;
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--box-shadow-card);
   transition: transform 0.3s ease-in-out;
 }
 .about-me--card > p {
@@ -46,14 +44,14 @@
   text-decoration: none;
   margin-right: 4px;
   cursor: pointer;
-  color: #127bb3;
+  color: var(--primary-color);
 }
 .about-me--card p > a:hover {
   font-weight: 600;
   text-decoration: none;
   margin-right: 4px;
   cursor: pointer;
-  color: #1390d4;
+  color: var(--primary-color);;
 }
 @media (max-width: 720px) {
   .about-me--card {
@@ -61,6 +59,6 @@
     min-width: 100px;
     max-width: 300px;
     width: 60%;
-  
+    text-align: center;
   }
 }

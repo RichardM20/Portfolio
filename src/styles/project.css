@@ -24,28 +24,28 @@
   align-items: center;
 }
 .swiper-pagination-bullet {
-  background-color: #127bb3 !important;
+  background-color: var(--primary-color) !important;
 }
 
 .swiper-button-next {
-  color: #127bb3 !important;
+  color: var(--primary-color) !important;
 }
 
 /* Cambia el color de la flecha anterior */
 .swiper-button-prev {
-  color: #127bb3 !important;
+  color: var(--primary-color) !important;
 }
 .project--container > p {
   font-weight: bold;
   text-decoration: underline;
   text-underline-offset: 10px;
   font-size: 25px;
-  color: #127bb3;
+  color: var(--primary-color);
   line-height: 1;
   margin-bottom: 25px;
 }
 .project--container > p:hover {
-  color: rgb(1, 166, 255);
+  color: var(--primary-color-light);
   cursor: none;
 }
 

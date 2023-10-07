@@ -1,32 +1,14 @@
 import RomboConIcono from "../components/RomboComponent";
+import contactLinks from "../utils/utils";
+import texts from "../utils/texts";
 
-import linkedin from "../assets/icons/linkedin.svg";
-import whatsapp from "../assets/icons/whatsapp.svg";
-import github from "../assets/icons/github.svg";
 
 import "../styles/contact.css";
-const ContactFragment = ({id}) => {
-  const contactLinks = [
-    {
-      icon: whatsapp,
-      name: "Whatsapp",
-      link: "https://api.whatsapp.com/send/?phone=+573022470728&text=Hola Rick, tengo un proyecto en el cual quiero que trabajemos",
-    },
-    {
-      icon: linkedin,
-      name: "Linkedin",
-      link: "https://www.linkedin.com/in/rickdeveloper/",
-    },
-    {
-      icon: github,
-      name: "Github",
-      link: "https://github.com/RichardM20",
-    },
-  ];
+const ContactFragment = ({ id }) => {
   return (
     <>
-      <div id={id}  className="contact-container">
-        <p>Contact</p>
+      <div id={id} className="contact-container">
+        <p>{texts.contact_me_title}</p>
         <div className="contact-card">
           {contactLinks.map((element, index) => (
             <RomboConIcono

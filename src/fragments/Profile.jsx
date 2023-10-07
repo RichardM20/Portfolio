@@ -1,23 +1,24 @@
+import ButtonDownloadCVComponent from "../components/ButtonDownloadCV";
 import SkillsFragment from "../fragments/SkillsFragment";
 import "../styles/profile.css";
+import texts from "../utils/texts";
 const ProfileFragment = ({id}) => {
   return (
     <>
       <div id={id} className="profile-container">
         <div className="profile-container--info">
           <div className="profile-container--info-me">
-            <p>Flutter Developer</p>
+            <p>{texts.profession}</p>
             <p>
               Hi, i'm <span>Richard morales</span>
             </p>
             <p>
-              I'm a passionate software developer from Colombia, constantly
-              searching for innovative solutions. I enjoy creating and
-              perfecting applications that make a difference.
+            {texts.profession_text}
             </p>
           </div>
           <div className="profile-container--info-photo">
             <img src="https://avatars.githubusercontent.com/u/64317751?v=4" />
+            <ButtonDownloadCVComponent/>
           </div>
         </div>
 

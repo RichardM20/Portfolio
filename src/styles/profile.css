@@ -88,9 +88,6 @@
   .profile-container--info-me > p {
     width: 100%;
     max-width: 400px;
-    padding-left: 15px;
-    padding-right: 15px;
-  
   }
 
   .profile-container--info-me > p:nth-child(1) {
@@ -98,10 +95,15 @@
   }
 
   .profile-container--info-me > p:nth-child(2) {
-    font-size: 1.2em;
+    font-size: 1em;
   }
 
   .profile-container--info-me > p:nth-child(3) {
     font-size: 1em;
+  }
+}
+@media (max-width: 400px) {
+  .profile-container--info-me > p {
+    width: 250px;
   }
 }

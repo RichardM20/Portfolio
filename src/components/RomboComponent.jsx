@@ -11,7 +11,6 @@ const RomboConIcono = ({ icon, text, url }) => {
       <div className="rombo">
         <img src={icon} alt="" />
       </div>
-      <p className="rombo-text">{text}</p>
     </RomboContainer>
   );
 };
@@ -46,10 +45,6 @@ const RomboContainer = styled.div`
       border: 1px solid #1390d41a;
       transform: rotate(406deg) scale(1.05);
     }
-
-    &:hover + .rombo-text {
-      color: #1390d4;
-    }
   }
 
   .rombo > img {
@@ -57,14 +52,6 @@ const RomboContainer = styled.div`
     transform: rotate(315deg);
   }
 
-  .rombo-text {
-    font-size: 16px;
-    font-weight: 500;
-    color: #000;
-    &:hover {
-      color: #1390d4;
-    }
-  }
   @media (max-width: 720px) {
     .rombo {
       width: 100%;
@@ -77,9 +64,6 @@ const RomboContainer = styled.div`
     .rombo > img {
       height: 50%;
       transform: rotate(315deg);
-    }
-    .rombo-text {
-      font-size: 0.8em;
     }
   }
 `;

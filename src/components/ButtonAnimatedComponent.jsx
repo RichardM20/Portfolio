@@ -22,7 +22,6 @@ const StyledButton = styled.div`
 const AnimationButton = ({ urlIcon, altIcon, urlRepo = "" }) => {
   const notify = () =>
     toast.info(texts.info_project, {
-      position: "bottom-center",
       autoClose: 3000,
       hideProgressBar: false,
       closeOnClick: true,

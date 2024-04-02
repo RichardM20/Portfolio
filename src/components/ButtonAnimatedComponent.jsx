@@ -34,7 +34,7 @@ const AnimationButton = ({ urlIcon, altIcon, urlRepo = "" }) => {
     if (urlRepo.length > 1) {
       window.open(urlRepo, "_blank");
     } else {
-      notify();
+      notify(); 
     }
   };
 

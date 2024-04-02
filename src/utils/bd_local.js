@@ -96,7 +96,7 @@ const projects_local = [
     id: "9",
     title: "List selection widget",
     content:
-      "Application for cross-platform notes developed in flutter with mvc and getx storing the data in local space",
+      "List selection widget is a Flutter package that provides a highly customizable dropdown list to select options with ease",
     technologies: ["https://img.icons8.com/color/48/flutter.png"],
     link_github: "https://github.com/RichardM20/list_selection_widget_package",
     link_demo: "https://pub.dev/packages/list_selection_widget",

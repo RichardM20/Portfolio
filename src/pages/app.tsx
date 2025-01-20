@@ -3,28 +3,29 @@ import React from 'react';
 import { ToastContainer } from 'react-toastify';
 
 import GoTopButtonComponent from '../components/GoToTopComponent';
-import ContactFragment from '../fragments/Contact';
-import FooterFragment from '../fragments/Footer';
-import Navbar from '../fragments/Navbar';
-import ProjectsFragment from '../fragments/Projetcs';
 import AboutFragment from './sections/About/About';
+import Contact from './sections/Contact/Contact';
+import Navbar from './sections/Navbar/Navbar';
 import ProfileFragment from './sections/Profile/Profile';
-import '../styles/app.css';
+import { ThemeProvider } from '../shared/context/themeContext';
+import Footer from './sections/Footer/Footer';
+import '../theme/utils.scss';
+import './App.scss';
 
 function App() {
   return (
-    <>
-      <div className="app">
+    <div data-experience="new" className="app ">
+      <ThemeProvider>
         <Navbar />
         <ProfileFragment id={'home'} />
-        <ProjectsFragment id={'projects'} />
+        <p>Project</p>
         <AboutFragment id={'about'} />
-        <ContactFragment id={'contact'} />
-        <FooterFragment />
+        <Contact id={'contact'} />
+        <Footer />
         <GoTopButtonComponent />
         <ToastContainer />
-      </div>
-    </>
+      </ThemeProvider>
+    </div>
   );
 }
 

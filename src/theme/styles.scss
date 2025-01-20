@@ -2,5 +2,46 @@
 
 $box-shadow-card: 0 4px 6px rgba(0, 0, 0, 0.1);
 $box-shadow-card-medium: 0 6px 12px rgba(0, 0, 0, 0.2);
-$gradient-left-right: linear-gradient(to right, black, $primary-color-light);
 $gradient-bottom-topRight: linear-gradient(to left bottom, $primary-color, $primary-color-light);
+$gradient-to-top: linear-gradient(to top, $primary-color, $primary-color-light);
+$gradient-top-bottom: linear-gradient(to bottom, $quaternary-background-color, $secondary-background-color);
+
+@mixin gradient ($begin-color){
+  background: linear-gradient(to right, $begin-color, $primary-color-light);
+}
+
+@mixin dark-theme {
+  color: $secondary-color-text;
+  background-color: $secondary-background-color;
+}
+
+@mixin light-theme {
+  color: $primary-color-text;
+  background-color: $primary-background-color;
+}
+
+@mixin background-transition {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+@mixin title-style($content: '') {
+  font-weight: bold;
+  font-size: 25px;
+  text-decoration: underline;
+  text-underline-offset: 10px;
+  color: $primary-color;
+  &.dark {
+    color: white;
+  }
+  @if $content == 'skill' {
+    margin-bottom: 24px;
+    text-decoration: none;
+  }
+
+  &:hover {
+    color: $primary-color-light;
+    cursor: none;
+  }
+}

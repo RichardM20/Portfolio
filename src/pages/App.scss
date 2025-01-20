@@ -1,0 +1,58 @@
+@use '../theme/colors.scss' as *;
+@use '../theme/styles.scss' as *;
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  padding: 0;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  @include background-transition;
+  
+  &.light-theme {
+    @include light-theme;
+  }
+  &.dark-theme {
+    @include dark-theme;
+  }
+}
+
+.scroll-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: $primary-color;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 10px 15px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: #127bb31a;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: $primary-color-light;
+}

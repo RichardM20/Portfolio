@@ -1,64 +1,50 @@
-.about-me--container {
-  background-color: #f5f5f5bc;
+@use '../../../theme/colors.scss' as *;
+@use '../../../theme/styles.scss' as *;
+
+.about-me {
   width: 100%;
   min-width: 400px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   padding-bottom: 50px;
-}
-.about-me--container > p {
-  font-weight: bold;
-  font-size: 25px;
-  text-decoration: underline;
-  color: var(--primary-color);
-  text-underline-offset: 10px;
-}
-.about-me--container > p:hover {
-  color: var(--primary-color-light);
+  background-color: $default-color-white;
+  @include background-transition;
+  &.dark {
+    background-color: $tertiary-background-color;
+    .card {
+      background-color: $default-color-card-dark;
+    }
+  }
+  .me {
+    @include title-style;
+  }
 
-  cursor: none;
-}
-.about-me--card {
-  width: 100%;
-  max-width: 550px;
-  min-width: 400px;
-  padding: 20px 30px;
-  text-align: start;
-  box-sizing: content-box;
-  color: #363636;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: var(--box-shadow-card);
-  transition: transform 0.3s ease-in-out;
-}
-.about-me--card > p {
-  font-weight: 400;
-  font-size: 0.8em;
-}
+  .card {
+    width: 100%;
+    max-width: 550px;
+    min-width: 400px;
+    padding: 24px;
+    border-radius: 8px;
+    box-shadow: $box-shadow-card;
+    background-color: $default-color-card;
+    transition: transform 0.3s ease-in-out;
+    font-weight: 400;
+    font-size: 0.8em;
+    text-decoration: none;
+    text-align: justify;
+    &:hover {
+      box-shadow: $box-shadow-card-medium;
+    }
+  }
 
-.about-me--card p > a {
-  font-weight: 600;
-  text-decoration: none;
-  margin-right: 4px;
-  cursor: pointer;
-  color: var(--primary-color);
-}
-.about-me--card p > a:hover {
-  font-weight: 600;
-  text-decoration: none;
-  margin-right: 4px;
-  cursor: pointer;
-  color: var(--primary-color);;
-}
-@media (max-width: 720px) {
-  .about-me--card {
-    box-sizing: content-box;
-    min-width: 100px;
-    max-width: 300px;
-    width: 60%;
-    text-align: center;
+  @media (max-width: 720px) {
+    .card {
+      box-sizing: content-box;
+      min-width: 100px;
+      width: 80%;
+      text-align: center;
+    }
   }
 }

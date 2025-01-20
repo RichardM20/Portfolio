@@ -1,18 +1,21 @@
 import React from 'react';
 
-import ButtonDownloadCVComponent from '../../../components/ButtonDownloadCV';
+import ButtonDownload from './components/ButtonDownload/ButtonDownload';
+import Skills from './components/Skills/Skills';
 import { GenericProps } from '../../../constants/genericInterfaces';
-import SkillsFragment from '../../../fragments/SkillsFragment';
+import { useTheme } from '../../../shared/context/themeContext';
 import texts from '../../../utils/texts';
 
 import './Profile.scss';
 
 const ProfileFragment: React.FC<GenericProps> = ({ id }) => {
+  const { theme } = useTheme();
+
   return (
     <div id={id} className="profile">
-      <div className="info">
+      <div className="info flex justify-center items-center">
         <div className="me">
-          <p>{texts.profession}</p>
+          <p className={theme}>{texts.profession}</p>
           <p>
             Hi, i&apos;m <span>Richard morales</span>
           </p>
@@ -20,11 +23,11 @@ const ProfileFragment: React.FC<GenericProps> = ({ id }) => {
         </div>
         <div className="photo">
           <img src="https://avatars.githubusercontent.com/u/64317751?v=4" />
-          <ButtonDownloadCVComponent />
+          <ButtonDownload className="icon-download" />
         </div>
       </div>
 
-      <SkillsFragment />
+      <Skills />
     </div>
   );
 };

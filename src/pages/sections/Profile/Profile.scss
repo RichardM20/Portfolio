@@ -3,21 +3,43 @@
 
 .profile {
   padding-top: 50px;
-  margin: 0;
-  width: 100%;
   padding-bottom: 10px;
   margin-top: 50px;
   min-width: 400px;
-
+  flex-direction: column;
   .info {
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    gap: 20%;
+    gap: 10%;
+    .me {
+      width: 30%;
+      p:nth-child(1) {
+        @include gradient(black);
+        &.dark {
+          @include gradient($secondary-color-light);
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+        }
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        font-size: 45px;
+        font-weight: bold;
+        line-height: 1;
+      }
+      p:nth-child(2) {
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 1;
+      }
+      p:nth-child(3) {
+        font-size: 15px;
+        line-height: 1.5;
+      }
+      span {
+        color: $primary-color;
+      }
+    }
+
     .photo {
       position: relative;
       height: 250px;
@@ -31,38 +53,17 @@
         border-radius: inherit;
       }
     }
-
-    .me {
-      width: 20%;
-      p:nth-child(1) {
-        background: $gradient-left-right;
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-      }
-      p:nth-child(1) {
-        font-size: 45px;
-        font-weight: bold;
-        line-height: 1;
-      }
-      p:nth-child(2) {
-        font-size: 20px;
-        font-weight: 500;
-        line-height: 1;
-      }
-
-      p:nth-child(3) {
-        font-size: 15px;
-        line-height: 1.5;
-      }
-      span {
-        color: $primary-color;
-      }
+    .icon-download {
+      position: absolute;
+      bottom: 10%;
+      left: 0%;
+     
     }
   }
 
   @media (max-width: 750px) {
     .info {
+      display: flex;
       flex-direction: column-reverse;
       .me {
         width: 70%;

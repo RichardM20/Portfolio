@@ -11,5 +11,6 @@ export const TRANSLATIONS_GLOBAL = {
   footer: 'footer_text',
   portfolio: 'portfolio',
   greeting: 'greeting',
-  download: 'download'
+  download: 'download',
+  navbar_name: 'navbar_name'
 };

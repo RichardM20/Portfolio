@@ -15,6 +15,9 @@ use(Backend)
     interpolation: {
       escapeValue: false
     },
+    react: {
+      useSuspense: true
+    },
     resources: {
       es: {
         translation: esFile

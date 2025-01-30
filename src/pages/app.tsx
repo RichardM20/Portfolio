@@ -3,13 +3,13 @@ import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { TRANSLATIONS_GLOBAL } from '../shared/constants/translations';
-import AboutFragment from './sections/About/About';
-import Contact from './sections/Contact/Contact';
-import Navbar from './sections/Navbar/Navbar';
-import ProfileFragment from './sections/Profile/Profile';
 import { ThemeProvider } from '../shared/context/themeContext';
-import Footer from './sections/Footer/Footer';
-import Projects from './sections/Projects/Projects';
+import About from './Landing/sections/About/About';
+import Contact from './Landing/sections/Contact/Contact';
+import Footer from './Landing/sections/Footer/Footer';
+import Navbar from './Landing/sections/Navbar/Navbar';
+import Profile from './Landing/sections/Profile/Profile';
+import Projects from './Landing/sections/Projects/Projects';
 import '../theme/utils.scss';
 import './App.scss';
 
@@ -24,9 +24,9 @@ function App() {
     <div data-experience="new" className="app ">
       <ThemeProvider>
         <Navbar />
-        <ProfileFragment />
+        <Profile />
         <Projects />
-        <AboutFragment />
+        <About />
         <Contact />
         <Footer />
       </ThemeProvider>

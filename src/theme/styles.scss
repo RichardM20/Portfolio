@@ -45,3 +45,26 @@ $gradient-top-bottom: linear-gradient(to bottom, $quaternary-background-color, $
     cursor: none;
   }
 }
+
+@keyframes scale-fade-in {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes scale-fade-in-up {
+  from {
+    transform: translateY(100%) scale(0);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}

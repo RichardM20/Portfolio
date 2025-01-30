@@ -1,0 +1,33 @@
+@use '../../../../theme/colors.scss' as *;
+@use '../../../../theme/styles.scss' as *;
+
+.projects {
+  background-color: $smoked-white;
+  padding-bottom: 24px;
+  width: 100%;
+
+  &.dark {
+    background-color: $quaternary-background-color;
+  }
+
+  p {
+    @include title-style;
+    margin-bottom: 24px;
+  }
+
+  .project-carousel {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  
+     
+  }
+  .skeletons {
+    width: 50%;
+    display: grid;
+    height: 400px;
+    .skeleton {
+      height: 100%;
+    }
+  }
+}

@@ -1,6 +1,6 @@
 {
   "profession": "Flutter Developer",
-  "greeting": "Hi, I'm <span>Richard Morales</span>",
+  "greeting": "Hi, I'm <span>{{user}}</span>",
   "profession_text": "I'm a passionate software developer from Colombia, constantly searching for innovative solutions. I enjoy creating and perfecting applications that make a difference.",
   "home": "Home",
   "projects": "Projects",
@@ -9,7 +9,8 @@
   "my_skills": "My Skills",
   "about_me_title": "About me",
   "about_me": "I have over {{years}} years of professional experience in software development. During this time, I have had the opportunity to work at several companies in the role of mobile developer, and on some occasions, also as a web developer. My specialization mainly focuses on the Flutter framework, but I have also worked as a front-end web developer using libraries like React with TypeScript. I enjoy taking on challenges that sometimes seem almost impossible to overcome, and I strive every day to conquer them. I like to share my opinions and express my perspective in any situation. When I encounter an obstacle in finding a solution, I try to step away from the problem, breathe, and return with a clearer and stronger mindset. I am in a constant learning process and am always open to feedback or criticism, as I believe they provide valuable opportunities for growth and improvement, both personally and professionally",
-  "footer_text": "Creadted by Richard Morales | All rights reserved",
+  "footer_text": "Creadted by {{user}} | All rights reserved",
   "portfolio": "Personal portfolio",
-  "download": "Downlaod"
+  "download": "Downlaod",
+  "navbar_name": "Rick developer"
 }

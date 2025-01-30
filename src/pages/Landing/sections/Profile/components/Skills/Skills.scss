@@ -1,0 +1,39 @@
+@use '../../../../../../theme/styles.scss' as *;
+@use '../../../../../../theme/colors.scss' as *;
+
+.skills {
+  margin-top: 50px;
+  width: 100%;
+
+  p {
+    animation: scale-fade-in-up 0.3s ease-in forwards;
+    @include title-style('skill');
+  }
+
+  .list {
+    width: calc(30% - 5%);
+    height: 50px;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: $box-shadow-card;
+    transition: box-shadow 0.3s ease;
+    animation: scale-fade-in-up 0.4s ease-in forwards;
+    &:hover {
+      cursor: none;
+      box-shadow: $box-shadow-card-medium;
+    }
+  }
+
+  .list img {
+    height: 90%;
+  }
+  @media (max-width: 752px) {
+    .list {
+      width: calc(50% - 5%);
+      height: 50px;
+    }
+    .list img {
+      height: 80%;
+    }
+  }
+}

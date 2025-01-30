@@ -22,6 +22,10 @@ body {
     @include dark-theme;
   }
 }
+:focus-visible{
+  outline: solid 1px $transparent-color;
+  border-radius: inherit;
+}
 
 ::-webkit-scrollbar {
   width: 8px;

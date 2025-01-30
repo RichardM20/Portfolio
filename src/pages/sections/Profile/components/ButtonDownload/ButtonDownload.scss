@@ -4,9 +4,11 @@
 @keyframes fadeIn {
   from {
     opacity: 0;
+    visibility: hidden;
   }
   to {
     opacity: 1;
+    visibility: visible;
   }
 }
 
@@ -20,22 +22,32 @@
   color: white;
   cursor: pointer;
   transition: all 0.3s ease;
-  
-  p {
-    display: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+
+  .download-text {
     opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 0.3s ease,
+      visibility 0.3s ease;
+    margin: 0;
   }
 
   &:hover {
     transform: scale(0.95);
     width: 120px;
-    transition: width 0.3s ease; 
+    transition:
+      width 0.3s ease,
+      transform 0.3s ease;
     box-shadow: $box-shadow-card;
     border-radius: 8px;
     background: $primary-color;
-    
     p {
-      display: flex;
+      opacity: 1;
+      visibility: visible;
       animation: fadeIn 0.3s ease forwards;
     }
   }
@@ -43,7 +55,7 @@
   &:active {
     transform: scale(0.9);
   }
-  
+
   .icon {
     height: 24px !important;
     width: 24px !important;

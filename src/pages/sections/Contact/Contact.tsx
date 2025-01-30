@@ -1,23 +1,18 @@
 import React from 'react';
 
-import RomboConIcono from '../../../components/RomboComponent';
-import { GenericProps } from '../../../constants/genericInterfaces';
+import { t } from 'i18next';
+
+import { TRANSLATIONS_GLOBAL } from '../../../shared/constants/translations';
 import { useTheme } from '../../../shared/context/themeContext';
-import texts from '../../../utils/texts';
-import contactLinks from '../../../utils/utils';
 import './Contact.scss';
 
-const Contact: React.FC<GenericProps> = ({ id }) => {
+const Contact: React.FC = () => {
   const { theme } = useTheme();
 
   return (
-    <div id={id} className={`contact flex flex-col justify-center items-center ${theme}`}>
-      <p>{texts.contact_me_title}</p>
-      <div className="card-c flex  justify-evenly items-center">
-        {contactLinks.map((element, index) => (
-          <RomboConIcono icon={element.icon} text={element.name} url={element.link} key={index} />
-        ))}
-      </div>
+    <div className={`contact flex flex-col justify-center items-center ${theme}`}>
+      <p>{t(TRANSLATIONS_GLOBAL.contact)}</p>
+      <div className="card-c flex  justify-evenly items-center">{}</div>
     </div>
   );
 };

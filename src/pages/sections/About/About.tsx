@@ -1,19 +1,18 @@
 import React from 'react';
 
+import { t } from 'i18next';
 
-import { GenericProps } from '../../../constants/genericInterfaces';
+import { TRANSLATIONS_GLOBAL } from '../../../shared/constants/translations';
 import { useTheme } from '../../../shared/context/themeContext';
-import texts from '../../../utils/texts';
-
 import './About.scss';
 
-const AboutFragment: React.FC<GenericProps> = ({ id }) => {
+const AboutFragment: React.FC = () => {
   const { theme } = useTheme();
 
   return (
-    <div id={id} className={`about-me ${theme}`}>
-      <p className="me">{texts.about_me_title}</p>
-      <div className="card">{texts.about_me}</div>
+    <div className={`about-me ${theme}`}>
+      <p className="me">{t(TRANSLATIONS_GLOBAL.about_me_title)}</p>
+      <div className="card">{t(TRANSLATIONS_GLOBAL.about_me, { years: 3 })}</div>
     </div>
   );
 };

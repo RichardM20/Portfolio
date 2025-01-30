@@ -1,51 +1,35 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-import { Link } from 'react-scroll';
+import { useTranslation } from 'react-i18next';
 
 import MOON_ICON from '../../../assets/icons/moon_3.svg';
 import SUN_ICON from '../../../assets/icons/sun_2.svg';
-import { NAVBAR_ITEMS } from '../../../constants/navbar';
 import { useTheme } from '../../../shared/context/themeContext';
-import texts from '../../../utils/texts';
 import './Navbar.scss';
 
 const Navbar: React.FC = () => {
-  const [isOpen, setOpen] = useState(false);
   const { toggleTheme, theme } = useTheme();
+  const { i18n } = useTranslation();
 
-  const toggleClicked = () => {
-    setOpen(!isOpen);
+  const changeLanguage = () => {
+    const currentLng = i18n.language;
+    if (currentLng === 'es') {
+      i18n.changeLanguage('en');
+    } else {
+      i18n.changeLanguage('es');
+    }
   };
 
   return (
-    <div className={`navbar ${isOpen && 'open'} flex flex-row justify-between items-center relative`}>
-      <p className="name">{texts.nav_name}</p>
-      <div className={`navbar-items flex flex-row ${isOpen && 'open'}`}>
-        {NAVBAR_ITEMS.map((item) =>
-          item.id === 'theme' ? (
-            <div className={`navbar-item theme ${theme}`} key={`index-${item.id}`} onClick={toggleTheme}>
-              <img src={theme === 'dark' ? SUN_ICON : MOON_ICON} alt="sun-icon-theme" />
-            </div>
-          ) : (
-            <Link
-              key={`index-${item.id}`}
-              to={item.id}
-              duration={500}
-              onClick={toggleClicked}
-              className={`navbar-item  ${item.id}`}
-              smooth={true}
-              offset={-70}
-              spy={true}
-            >
-              {item.title}
-            </Link>
-          )
-        )}
-      </div>
-      <div className={`navbar-toggle ${isOpen && 'open'}`} onClick={toggleClicked}>
-        <span></span>
-        <span></span>
-        <span></span>
+    <div className={'navbar   flex flex-row justify-between items-center relative'}>
+      <p className="name">R1CK</p>
+      <div className={'navbar-items flex flex-row  '}>
+        <div className={`navbar-item theme ${theme}`} onClick={toggleTheme}>
+          <img src={theme === 'dark' ? SUN_ICON : MOON_ICON} alt="sun-icon-theme" />
+        </div>
+        <div className={`navbar-item lng ${theme}`} onClick={changeLanguage}>
+          {i18n.language === 'es' ? 'EN' : 'ES'}
+        </div>
       </div>
     </div>
   );

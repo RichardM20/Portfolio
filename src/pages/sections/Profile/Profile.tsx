@@ -1,25 +1,34 @@
 import React from 'react';
 
+import { t } from 'i18next';
+import { Trans } from 'react-i18next';
+
 import ButtonDownload from './components/ButtonDownload/ButtonDownload';
 import Skills from './components/Skills/Skills';
-import { GenericProps } from '../../../constants/genericInterfaces';
+import { TRANSLATIONS_GLOBAL } from '../../../shared/constants/translations';
 import { useTheme } from '../../../shared/context/themeContext';
-import texts from '../../../utils/texts';
 
 import './Profile.scss';
 
-const ProfileFragment: React.FC<GenericProps> = ({ id }) => {
+const ProfileFragment: React.FC = () => {
   const { theme } = useTheme();
 
   return (
-    <div id={id} className="profile">
+    <div className="profile">
       <div className="info flex justify-center items-center">
         <div className="me">
-          <p className={theme}>{texts.profession}</p>
+          <p className={theme}>{t(TRANSLATIONS_GLOBAL.profession)}</p>
           <p>
-            Hi, i&apos;m <span>Richard morales</span>
+            {
+              <Trans
+                i18nKey={TRANSLATIONS_GLOBAL.greeting}
+                components={{
+                  span: <span></span>
+                }}
+              />
+            }
           </p>
-          <p>{texts.profession_text}</p>
+          <p>{t(TRANSLATIONS_GLOBAL.profession_text)}</p>
         </div>
         <div className="photo">
           <img src="https://avatars.githubusercontent.com/u/64317751?v=4" />

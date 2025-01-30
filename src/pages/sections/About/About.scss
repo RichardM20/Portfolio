@@ -11,6 +11,7 @@
   padding-bottom: 50px;
   background-color: $default-color-white;
   @include background-transition;
+  
   &.dark {
     background-color: $tertiary-background-color;
     .card {
@@ -23,20 +24,16 @@
 
   .card {
     width: 100%;
-    max-width: 550px;
+    max-width: 650px;
     min-width: 400px;
     padding: 24px;
     border-radius: 8px;
-    box-shadow: $box-shadow-card;
     background-color: $default-color-card;
     transition: transform 0.3s ease-in-out;
     font-weight: 400;
     font-size: 0.8em;
     text-decoration: none;
     text-align: justify;
-    &:hover {
-      box-shadow: $box-shadow-card-medium;
-    }
   }
 
   @media (max-width: 720px) {

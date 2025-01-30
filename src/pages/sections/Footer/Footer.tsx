@@ -1,7 +1,9 @@
 import React from 'react';
 
+import { t } from 'i18next';
+
+import { TRANSLATIONS_GLOBAL } from '../../../shared/constants/translations';
 import { useTheme } from '../../../shared/context/themeContext';
-import texts from '../../../utils/texts';
 import './Footer.scss';
 
 const Footer: React.FC = () => {
@@ -9,7 +11,7 @@ const Footer: React.FC = () => {
 
   return (
     <div className={`footer flex justify-center items-center ${theme}`}>
-      <p>{texts.footer_text}</p>
+      <p>{t(TRANSLATIONS_GLOBAL.footer)}</p>
     </div>
   );
 };

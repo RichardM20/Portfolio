@@ -1,29 +1,34 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
-import { ToastContainer } from 'react-toastify';
+import { useTranslation } from 'react-i18next';
 
-import GoTopButtonComponent from '../components/GoToTopComponent';
+import { TRANSLATIONS_GLOBAL } from '../shared/constants/translations';
 import AboutFragment from './sections/About/About';
 import Contact from './sections/Contact/Contact';
 import Navbar from './sections/Navbar/Navbar';
 import ProfileFragment from './sections/Profile/Profile';
 import { ThemeProvider } from '../shared/context/themeContext';
 import Footer from './sections/Footer/Footer';
+import Projects from './sections/Projects/Projects';
 import '../theme/utils.scss';
 import './App.scss';
 
 function App() {
+  const { t } = useTranslation();
+
+  useEffect(() => {
+    document.title = t(TRANSLATIONS_GLOBAL.portfolio);
+  }, [t]);
+
   return (
     <div data-experience="new" className="app ">
       <ThemeProvider>
         <Navbar />
-        <ProfileFragment id={'home'} />
-        <p>Project</p>
-        <AboutFragment id={'about'} />
-        <Contact id={'contact'} />
+        <ProfileFragment />
+        <Projects />
+        <AboutFragment />
+        <Contact />
         <Footer />
-        <GoTopButtonComponent />
-        <ToastContainer />
       </ThemeProvider>
     </div>
   );

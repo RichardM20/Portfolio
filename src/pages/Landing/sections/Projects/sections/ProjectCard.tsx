@@ -1,11 +1,14 @@
 import React from 'react';
 
+import { t } from 'i18next';
+
 import gatito from '../../../../../assets/images/gatito.jpg';
+import { TRANSLATIONS_GLOBAL } from '../../../../../shared/constants/translations';
 import { useTheme } from '../../../../../shared/context/themeContext';
 import { IProjectData } from '../../../../../shared/interfaces/projects';
 import './ProjectCard.scss';
 
-const ProjectCard: React.FC<IProjectData> = ({ title, description, image, releaseData, technologies }) => {
+const ProjectCard: React.FC<IProjectData> = ({ title, description, image, releaseData }) => {
   const { theme } = useTheme();
 
   const renderImage = () => {
@@ -19,11 +22,12 @@ const ProjectCard: React.FC<IProjectData> = ({ title, description, image, releas
     <div className={`project-card flex flex-col items-start ${theme}`}>
       {renderImage()}
       <div className="card-content flex flex-col items-start justify-between">
-        <div className="title">{title}</div>
-        <div className="description">{description}</div>
+        <div className="top flex flex-col">
+          <div className="title">{title}</div>
+          <div className="description">{description}</div>
+        </div>
         <div className={`actions flex flex-row justify-between ${theme}`}>
-          <button className="demo">Repositorie</button>
-          <button className="details">Details</button>
+          <button className="details">{t(TRANSLATIONS_GLOBAL.details)}</button>
         </div>
       </div>
     </div>

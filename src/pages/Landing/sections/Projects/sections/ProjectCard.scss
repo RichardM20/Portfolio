@@ -26,23 +26,25 @@
     height: 100%;
     padding: 8px 8px 12px 8px;
     box-sizing: border-box;
-
-    .title {
-      color: $primary-color;
-      font-weight: bold;
+    .top {
+      gap: 8px;
+      .title {
+        color: $primary-color;
+        font-weight: bold;
+      }
+      .description {
+        color: rgb(173, 173, 173);
+        font-size: 0.8em;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: break-word;
+        white-space: normal;
+      }
     }
 
-    .description {
-      color: rgb(173, 173, 173);
-      font-size: 0.8em;
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      word-break: break-word;
-      white-space: normal;
-    }
     .actions {
       margin-top: 4px;
       &.dark {

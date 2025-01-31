@@ -2,7 +2,8 @@ import React, { Suspense } from 'react';
 
 import ReactDOM from 'react-dom/client';
 
-import Main from './pages/App';
+import App from './pages/app';
+import LoadingScreen from './pages/Loading/Loading';
 import { FirebaseServices } from './shared/services/firebase/firebase';
 import './shared/translations/i18n';
 
@@ -12,8 +13,8 @@ FirebaseServices.initializateServices();
 
 root.render(
   <React.StrictMode>
-    <Suspense fallback={<div>Loading...</div>}>
-      <Main />
+    <Suspense fallback={<LoadingScreen />}>
+      <App />
     </Suspense>
   </React.StrictMode>
 );

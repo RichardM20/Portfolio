@@ -1,0 +1,93 @@
+.project-upload {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+  
+      .form-group {
+        display: flex;
+        flex-direction: column;
+  
+        label {
+          margin-bottom: 5px;
+          font-weight: bold;
+        }
+  
+        input[type="text"],
+        input[type="url"],
+        input[type="date"],
+        input[type="file"],
+        textarea {
+          padding: 8px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          font-size: 16px;
+        }
+  
+        textarea {
+          min-height: 100px;
+          resize: vertical;
+        }
+  
+        input[type="checkbox"] {
+          margin-right: 5px;
+        }
+  
+        .image-preview {
+          max-width: 100%;
+          max-height: 200px;
+          margin-top: 10px;
+          object-fit: contain;
+        }
+      }
+  
+      button {
+        padding: 10px 15px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+  
+        &:hover {
+          background-color: #0056b3;
+        }
+      }
+    }
+  }
+  
+  // Estilos responsivos
+  @media (max-width: 768px) {
+    .project-upload {
+      padding: 10px;
+  
+      form {
+        .form-group {
+          input[type="text"],
+          input[type="url"],
+          input[type="date"],
+          input[type="file"],
+          textarea {
+            font-size: 14px;
+          }
+        }
+  
+        button {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+  
+  

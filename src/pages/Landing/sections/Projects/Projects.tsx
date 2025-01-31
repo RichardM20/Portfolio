@@ -1,5 +1,5 @@
 import type React from 'react';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import { Skeleton } from '@mui/material';
 import { t } from 'i18next';
@@ -22,22 +22,22 @@ const Projects: React.FC = () => {
 
   const { theme } = useTheme();
 
-  useEffect(() => {
-    const getProjects = async () => {
-      setLoading(true);
-      setError(null);
-      try {
-        const projects = await FirebaseServices.getAllProjects();
-        setProjects(projects);
-      } catch (error) {
-        setError(error as Error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    getProjects();
+  const getProjects = useCallback(async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const projects = await FirebaseServices.getAllProjects();
+      setProjects(projects);
+    } catch (error) {
+      setError(error as Error);
+    } finally {
+      setLoading(false);
+    }
   }, []);
+
+  useEffect(() => {
+    getProjects();
+  }, [getProjects]);
 
   const settings = {
     dots: true,
@@ -83,24 +83,15 @@ const Projects: React.FC = () => {
       ) : (
         <div className="project-carousel">
           <Slider {...settings}>
-            {Array.from({ length: 3 }).map((_, index) => (
+            {projects.map((project, index) => (
               <div key={index} className="project-slide">
                 <ProjectCard
-                  id={''}
-                  title={''}
-                  description={''}
-                  image={''}
-                  technologies={[]}
-                  releaseData={{
-                    isPublished: false,
-                    releaseDate: '',
-                    urls: {
-                      github: undefined,
-                      demo: undefined,
-                      appstore: undefined,
-                      playstore: undefined
-                    }
-                  }}
+                  id={project.id}
+                  title={project.title}
+                  description={project.description}
+                  image={project.image}
+                  technologies={project.technologies}
+                  releaseData={project.releaseData}
                 />
               </div>
             ))}

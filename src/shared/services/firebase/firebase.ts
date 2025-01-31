@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { collection, getDocs, QuerySnapshot, getFirestore, doc, getDoc } from 'firebase/firestore';
+import { collection, getDocs, QuerySnapshot, getFirestore, doc, getDoc, setDoc } from 'firebase/firestore';
 
 import { COLLECTION_NAME, FIREBASE_CONFIG } from '../../constants/firebase';
 import { IProjectData } from '../../interfaces/projects';
@@ -27,5 +27,10 @@ export class FirebaseServices {
       throw new Error('No such document!');
     }
     return { id: docSnap.id, ...docSnap.data() } as IProjectData;
+  };
+
+  static addProject = async (project: IProjectData): Promise<void> => {
+    const docRef = doc(collection(db, COLLECTION_NAME));
+    await setDoc(docRef, project);
   };
 }

@@ -3,7 +3,7 @@
 
 .about-me {
   width: 100%;
-  min-width: 400px;
+  min-width: 420px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -24,8 +24,8 @@
 
   .card {
     width: 100%;
-    max-width: 650px;
-    min-width: 400px;
+  max-width: 550px;
+  min-width: 400px;
     padding: 24px;
     border-radius: 8px;
     background-color: $default-color-card;
@@ -40,7 +40,8 @@
     .card {
       box-sizing: content-box;
       min-width: 100px;
-      width: 80%;
+      max-width: 300px;
+      width: 60%;
       text-align: center;
     }
   }

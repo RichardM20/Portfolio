@@ -28,7 +28,7 @@ $gradient-top-bottom: linear-gradient(to bottom, $quaternary-background-color, $
 
 @mixin title-style($content: '') {
   font-weight: bold;
-  font-size: 25px;
+  font-size: 24px;
   text-decoration: underline;
   text-underline-offset: 10px;
   color: $primary-color;

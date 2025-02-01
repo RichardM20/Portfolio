@@ -5,7 +5,7 @@
   background-color: $smoked-white;
   padding-bottom: 24px;
   width: 100%;
-
+  min-width: 420px;
   &.dark {
     background-color: $quaternary-background-color;
   }
@@ -19,9 +19,9 @@
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-  
-     
+    
   }
+
   .skeletons {
     width: 50%;
     display: grid;
@@ -30,4 +30,5 @@
       height: 100%;
     }
   }
+ 
 }

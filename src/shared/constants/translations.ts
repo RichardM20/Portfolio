@@ -13,5 +13,6 @@ export const TRANSLATIONS_GLOBAL = {
   greeting: 'greeting',
   download: 'download',
   navbar_name: 'navbar_name',
-  details: 'details'
+  details: 'details',
+  tech_stack: 'tech_stack'
 };

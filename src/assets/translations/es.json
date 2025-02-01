@@ -1,6 +1,6 @@
 {
   "profession": "Desarrollador Flutter",
-  "greeting": "Hola, soy <span>{{user}}</span>",
+  "greeting": "Hola, soy<br/><span>{{user}}</span>",
   "profession_text": "Soy un desarrollador de software apasionado de Colombia, siempre buscando soluciones innovadoras. Disfruto creando y perfeccionando aplicaciones que marcan la diferencia.",
   "home": "Inicio",
   "projects": "Proyectos",
@@ -11,7 +11,7 @@
   "about_me": "Tengo más de {{years}} años de experiencia laboral en desarrollo de software. Durante este tiempo, he tenido la oportunidad de trabajar en varias empresas desempeñándome como desarrollador móvil y, en algunas ocasiones, también como desarrollador web. Mi especialización se centra principalmente en el framework Flutter, pero también he trabajado como desarrollador front-end web, utilizando bibliotecas como React con TypeScript. Me gusta enfrentar desafíos que, en ocasiones, parecen casi imposibles de superar, y me esfuerzo cada día por superarlos. Disfruto compartir mis opiniones y expresar mi perspectiva en cualquier situación. Cuando me enfrento a un obstáculo al intentar encontrar una solución, trato de alejarme del problema, respirar y regresar con una visión más clara y renovada. Estoy en un proceso constante de aprendizaje y siempre estoy dispuesto a recibir opiniones o críticas, ya que considero que brindan valiosas oportunidades para el crecimiento y la mejora, tanto a nivel personal como profesional",
   "footer_text": "Creado por {{user}} | Todos los derechos reservados",
   "portfolio": "Portafolio personal",
-  "download": "Descargar",
+  "download": "Descargar CV",
   "navbar_name": "Rick developer",
   "details": "Detalles"
 }

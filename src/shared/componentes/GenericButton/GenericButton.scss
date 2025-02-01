@@ -1,0 +1,33 @@
+.generic-button {
+  min-width: 125px;
+  padding: 8px 14px;
+  cursor: pointer;
+  gap: 8px;
+  .icon {
+    height: 14px;
+  }
+  &.gradient {
+    background: linear-gradient(to left, #c26cff, #a245d8);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.3s;
+    &:hover {
+      filter: brightness(1.5);
+    }
+  }
+  &.outline {
+    background: none;
+    border: 1px solid #ca90f0;
+    color: #ca90f0;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.3s;
+    &:hover {
+      filter: brightness(1.2);
+    }
+  }
+}

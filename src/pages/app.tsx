@@ -21,15 +21,13 @@ function App() {
   }, [t]);
 
   return (
-    <div data-experience="new" className="app ">
-      <ThemeProvider>
-        <Navbar />
-        <Profile />
-        <Projects />
-        <About />
-        <Contact />
-        <Footer />
-      </ThemeProvider>
+    <div data-experience="new" className="app">
+      <div className="mask">
+        <ThemeProvider>
+          <Navbar />
+          <Profile />
+        </ThemeProvider>
+      </div>
     </div>
   );
 }

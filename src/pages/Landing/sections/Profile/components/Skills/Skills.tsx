@@ -2,23 +2,35 @@ import React from 'react';
 
 import { t } from 'i18next';
 
-import FlutterIcon from '../../../../../../assets/icons/flutter.svg';
-import GitIcon from '../../../../../../assets/icons/git.svg';
-import JsIcon from '../../../../../../assets/icons/javascript.svg';
-import ReactIcon from '../../../../../../assets/icons/react.svg';
+ 
 import { TRANSLATIONS_GLOBAL } from '../../../../../../shared/constants/translations';
 
 import './Skills.scss';
 
+const TAB_ITEMS = [
+  {
+    title: TRANSLATIONS_GLOBAL.my_skills,
+    icon: 'skills'
+  },
+  {
+    title: TRANSLATIONS_GLOBAL.projects,
+    icon: 'skills'
+  },
+  {
+    title: TRANSLATIONS_GLOBAL.tech_stack,
+    icon: 'skills'
+  }
+];
 const SkillsFragment = () => {
   return (
-    <div className="skills flex flex-col justify-center items-center">
-      <p>{t(TRANSLATIONS_GLOBAL.my_skills)}</p>
-      <div className="list flex flex-row justify-between items-center">
-        <img src={FlutterIcon} className="skill-flutter" alt="Flutter Icon" />
-        <img src={ReactIcon} className="skill-react" alt="React Icon" />
-        <img src={JsIcon} className="skill-javascript" alt="Javascript Icon" />
-        <img src={GitIcon} className="skill-git" alt="Git Icon" />
+    <div className="general flex flex-col justify-center items-center">
+      <p>Some title</p>
+      <div className="tab flex flex-row justify-center items-center">
+        {TAB_ITEMS.map((tabItem, index) => (
+          <div key={index} className="tab-item">
+            <p>{t(tabItem.title)}</p>
+          </div>
+        ))}
       </div>
     </div>
   );

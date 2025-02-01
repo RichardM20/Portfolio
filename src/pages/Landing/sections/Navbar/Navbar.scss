@@ -3,26 +3,24 @@
 .navbar {
   height: 60px;
   display: flex;
-  min-width: 300px;
-  position: fixed;
-  padding: 0 50px;
+  width: 100%;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  min-width: 420px;
   .name {
-    font-weight: 600;
-    font-size: 20px;
     color: $primary-color;
     cursor: pointer;
+    padding-left: 14px;
   }
   .navbar-item {
     padding: 15px;
     text-decoration: none;
     transition: transform 0.3s ease;
-    &.theme{
+    &.theme {
       transform: translateY(0px);
-      &.dark{
+      &.dark {
         filter: invert(1);
       }
-      &:hover{
+      &:hover {
         transform: translateY(-2px);
       }
     }
@@ -31,7 +29,4 @@
       cursor: pointer;
     }
   }
- 
 }
- 
- 

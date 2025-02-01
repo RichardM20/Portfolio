@@ -4,14 +4,14 @@
 .skills {
   margin-top: 50px;
   width: 100%;
-
   p {
     animation: scale-fade-in-up 0.3s ease-in forwards;
     @include title-style('skill');
   }
 
   .list {
-    width: calc(30% - 5%);
+    width: 100%;
+    max-width: 400px;
     height: 50px;
     padding: 10px;
     border-radius: 8px;
@@ -22,18 +22,14 @@
       cursor: none;
       box-shadow: $box-shadow-card-medium;
     }
-  }
-
-  .list img {
-    height: 90%;
-  }
-  @media (max-width: 752px) {
-    .list {
-      width: calc(50% - 5%);
-      height: 50px;
+    img {
+      height: 90%;
     }
-    .list img {
-      height: 80%;
+    @media (max-width: 752px) {
+      width: calc(70% - 5%);
+      img {
+        height: 80%;
+      }
     }
   }
 }

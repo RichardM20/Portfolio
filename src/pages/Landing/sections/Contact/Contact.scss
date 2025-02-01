@@ -3,9 +3,8 @@
 
 .contact {
   width: 100%;
-  min-width: 400px;
   padding-bottom: 64px;
-  gap: 34px;
+  min-width: 400px;
   p {
     @include title-style;
   }
@@ -14,6 +13,14 @@
     background-color: $quaternary-background-color;
   }
   .card-c {
-    gap: 124px;
+    gap: 24px;
+    width: 100%;
+    max-width: 400px;
+  }
+  @media screen and (max-width: 720px) {
+    min-width: 420px;
+    .card-c {
+      width: 70%;
+    }
   }
 }

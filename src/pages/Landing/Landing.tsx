@@ -3,21 +3,19 @@ import React from 'react';
 import { t } from 'i18next';
 import { Trans } from 'react-i18next';
 
-import Skills from './components/Skills/Skills';
-import BlurCardContainer from '../../../../shared/componentes/BlurCard/BlurCardContainer';
-import GenericButton from '../../../../shared/componentes/GenericButton/GenericcButton';
-import { TRANSLATIONS_GLOBAL } from '../../../../shared/constants/translations';
-import { USER_NAME } from '../../../../shared/constants/user';
-import { useTheme } from '../../../../shared/context/themeContext';
+import GenericButton from '../../shared/componentes/GenericButton/GenericcButton';
+import { TRANSLATIONS_GLOBAL } from '../../shared/constants/translations';
+import { USER_NAME } from '../../shared/constants/user';
 
-import './Profile.scss';
-import Experience from './components/Experience/Experience';
+import './Landing.scss';
 
-const Profile: React.FC = () => {
-  const { theme } = useTheme();
+interface LandingProps {
+  children?: React.ReactNode;
+}
 
+const Landing: React.FC<LandingProps> = ({ children }) => {
   return (
-    <div className="profile flex flex-col">
+    <div className="landing flex flex-col">
       <div className="info flex justify-between items-center">
         <div className="me">
           <p>
@@ -37,14 +35,13 @@ const Profile: React.FC = () => {
             <GenericButton text={t(TRANSLATIONS_GLOBAL.download)} action={() => {}} style="gradient" />
           </div>
         </div>
-        <div className="profile-photo">
+        <div className="landing-photo">
           <img src="https://avatars.githubusercontent.com/u/64317751?v=4" />
         </div>
       </div>
-      <Experience />
-      <Skills />
+      {children}
     </div>
   );
 };
 
-export default Profile;
+export default Landing;

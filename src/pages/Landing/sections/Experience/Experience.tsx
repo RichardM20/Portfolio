@@ -2,9 +2,9 @@ import React from 'react';
 
 import { t } from 'i18next';
 
-import BlurCardContainer from '../../../../../../shared/componentes/BlurCard/BlurCardContainer';
+import BlurCardContainer from '../../../../shared/componentes/BlurCard/BlurCardContainer';
 import './Experience.scss';
-import { EXPERIENCE } from '../../../../../../shared/constants/experience';
+import { EXPERIENCE } from '../../../../shared/constants/experience';
 
 const Experience: React.FC = () => {
   return (

@@ -2,14 +2,11 @@ import React, { useEffect } from 'react';
 
 import { useTranslation } from 'react-i18next';
 
+import Landing from './Landing/Landing';
 import { TRANSLATIONS_GLOBAL } from '../shared/constants/translations';
-import { ThemeProvider } from '../shared/context/themeContext';
-import About from './Landing/sections/About/About';
-import Contact from './Landing/sections/Contact/Contact';
-import Footer from './Landing/sections/Footer/Footer';
-import Navbar from './Landing/sections/Navbar/Navbar';
-import Profile from './Landing/sections/Profile/Profile';
-import Projects from './Landing/sections/Projects/Projects';
+import Experience from './Landing/sections/Experience/Experience';
+import General from './Landing/sections/General/General';
+
 import '../theme/utils.scss';
 import './App.scss';
 
@@ -23,9 +20,10 @@ function App() {
   return (
     <div data-experience="new" className="app">
       <div className="mask">
-        <ThemeProvider>
-          <Profile />
-        </ThemeProvider>
+        <Landing>
+          <Experience />
+          <General />
+        </Landing>
       </div>
     </div>
   );

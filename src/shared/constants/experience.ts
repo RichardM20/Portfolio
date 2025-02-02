@@ -16,7 +16,7 @@ export const EXPERIENCE = [
   {
     icon: 'e',
     title: TRANSLATIONS_GLOBAL.yaers_experience,
-    description: TRANSLATIONS_GLOBAL.yaers_experience,
+    description: TRANSLATIONS_GLOBAL.years_experience_text,
     count: 4
   }
 ];

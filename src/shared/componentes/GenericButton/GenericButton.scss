@@ -1,3 +1,5 @@
+@use '../../../theme/colors.scss' as *;
+
 .generic-button {
   min-width: 125px;
   padding: 8px 14px;
@@ -7,7 +9,7 @@
     height: 14px;
   }
   &.gradient {
-    background: linear-gradient(to left, #c26cff, #a245d8);
+    background: linear-gradient(to right, $primary-color-800, $secondary-color-600);
     color: white;
     border: none;
     border-radius: 4px;

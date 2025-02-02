@@ -24,7 +24,6 @@ function App() {
     <div data-experience="new" className="app">
       <div className="mask">
         <ThemeProvider>
-          <Navbar />
           <Profile />
         </ThemeProvider>
       </div>

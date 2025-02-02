@@ -14,5 +14,11 @@ export const TRANSLATIONS_GLOBAL = {
   download: 'download',
   navbar_name: 'navbar_name',
   details: 'details',
-  tech_stack: 'tech_stack'
+  tech_stack: 'tech_stack',
+  yaers_experience: 'yaers_experience',
+  certifications: 'certifications',
+  certifications_text: 'certifications_text',
+  total_projects: 'total_projects',
+  total_projects_text: 'total_projects_text',
+  years_experience_text: 'years_experience_text'
 };

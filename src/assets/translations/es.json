@@ -13,5 +13,11 @@
   "portfolio": "Portafolio personal",
   "download": "Descargar CV",
   "navbar_name": "Rick developer",
-  "details": "Detalles"
+  "details": "Detalles",
+  "yaers_experience": "Años de experiencia",
+  "certifications": "Certificaciones",
+  "certifications_text": "Habilidades profesionales validadas",
+  "total_projects": "Proyectos totales",
+  "total_projects_text": "Proyectos en los que he trabajado a lo largo de mi carrera",
+  "years_experience_text": "Años en los que he trabajado como desarrollador"
 }

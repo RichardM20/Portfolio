@@ -6,9 +6,7 @@
   width: 100%;
   p {
     animation: scale-fade-in-up 0.3s ease-in forwards;
-    @include title-style('skill');
   }
-
   .list {
     width: 100%;
     max-width: 400px;

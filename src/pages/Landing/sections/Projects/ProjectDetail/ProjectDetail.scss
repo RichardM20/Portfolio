@@ -1,0 +1,103 @@
+@use '../../../../../theme/colors.scss' as *;
+@use '../../../../../theme/styles.scss' as *;
+
+.project-detail-container {
+  backdrop-filter: blur(12px);
+  height: 100%;
+  min-height: 70vh;
+  padding: 5% 10% 0 10%;
+  min-width: 400px;
+
+  .top-actions {
+    .back-button {
+      width: 100px;
+      height: 44px;
+      border-radius: 8px;
+      font-size: 0.9em;
+      background-color: rgba($color: black, $alpha: 0.1);
+   
+    }
+    .subtle {
+      color: $primary-text-color-200;
+      font-size: 0.8em;
+      font-weight: lighter;
+    }
+    .project-name {
+      color: $primary-text-color-100;
+      font-size: 0.8em;
+      font-weight: 500;
+    }
+  }
+  .project-detail {
+    flex-direction: row-reverse;
+    .image-container {
+      height: 100%;
+      overflow: hidden;
+      max-height: 600px;
+      width: 100%;
+      border-radius: 4px;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: inherit;
+        box-sizing: border-box;
+      }
+    }
+    .information-column {
+      .info-title {
+        font-size: 2em;
+        font-weight: bolder;
+        @include text-gradient($secondary-color-200);
+        margin: 0;
+      }
+      .info-description {
+        width: 100%;
+        font-size: 1em;
+        color: $primary-text-color-200;
+        margin: 0;
+      }
+      .links-container {
+        .link-item {
+          padding: 14px;
+          width: 100%;
+          max-width: 100px;
+          background-color: rgba($color: $secondary-color-800, $alpha: 0.1);
+          color: $primary-text-color-100;
+          transition: all 0.3s ease;
+          font-size: 0.8em;
+          &:hover {
+            filter: brightness(1.5);
+            cursor: pointer;
+          }
+        }
+      }
+      .technologies-container {
+        .tech-list {
+          background-color: $hover-color-005;
+          padding: 14px;
+        }
+        .tech-icon {
+          height: 34px;
+          width: 34px;
+          background: $hover-color-01;
+          border-radius: 100%;
+        }
+        .tech-title {
+          font-size: 1.2em;
+          font-weight: bolder;
+          color: $primary-text-color;
+          margin: 0;
+        }
+        .tech-item {
+          padding: 14px;
+          max-width: 100px;
+          background-color: rgba($color: $secondary-color-800, $alpha: 0.1);
+          color: $primary-text-color-100;
+          font-size: 0.8em;
+          transition: all 0.3s ease;
+        }
+      }
+    }
+  }
+}

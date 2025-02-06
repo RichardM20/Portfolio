@@ -15,19 +15,19 @@
   .experience-item {
     height: 100px;
     width: 100%;
-    max-width: 328px;
+    max-width: 350px;
     border-radius: 8px;
     padding: 14px;
     background: $hover-color-005;
     gap: 18px;
     user-select: none;
-    transition:
-      transform 0.3s,
-      box-shadow 0.3s;
+    transition: all 0.3s ease;
     &:hover {
       box-shadow: 0 0 40px 0 rgba($color: $secondary-color-600, $alpha: 0.12);
-      transform: scale(1.1);
+      background: $hover-color-01;
+      filter: brightness(1.2);
       cursor: pointer;
+      
     }
     .top {
       .icon {
@@ -42,7 +42,7 @@
     }
 
     .title {
-      font-size: 1.1em;
+      font-size: 1.0em;
       font-weight: bold;
       color: $primary-text-color-100;
       overflow: hidden;

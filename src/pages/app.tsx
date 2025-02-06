@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 
 import { useTranslation } from 'react-i18next';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import Landing from './Landing/Landing';
+import ProjectDetail from './Landing/sections/Projects/ProjectDetail/ProjectDetail';
+import Main from './Main/Main';
 import { TRANSLATIONS_GLOBAL } from '../shared/constants/translations';
-import Experience from './Landing/sections/Experience/Experience';
-import General from './Landing/sections/General/General';
-
+import { ProjectsProvider } from '../shared/projectContext';
 import '../theme/utils.scss';
 import './App.scss';
 
@@ -18,14 +18,16 @@ function App() {
   }, [t]);
 
   return (
-    <div data-experience="new" className="app">
-      <div className="mask">
-        <Landing>
-          <Experience />
-          <General />
-        </Landing>
-      </div>
-    </div>
+    <ProjectsProvider>
+      <Router>
+        <div data-experience="new" className="app">
+          <Routes>
+            <Route path="/*" element={<Main />} />
+            <Route path="detail-project" element={<ProjectDetail />} />
+          </Routes>
+        </div>
+      </Router>
+    </ProjectsProvider>
   );
 }
 

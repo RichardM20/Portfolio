@@ -3,22 +3,27 @@
 
 .landing {
   min-width: 400px;
+  max-width: 1400px;
+  margin: 0 auto;  
   flex-direction: column;
   gap: 48px;
-  padding: 5% 20%;
+  padding: 5% 10% 0 10%;
   color: $primary-text-color;
+  backdrop-filter: blur(38px);
   @media screen and (max-width: 950px) {
     padding: 0 5%;
   }
   .info {
     gap: 10%;
+    display: flex;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: auto;
     .me {
       width: 50%;
       p:nth-child(1) {
         animation: scale-fade-in 0.2s ease-out forwards;
-        background: linear-gradient(to right, $primary-color-600, $secondary-color-100);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        @include text-gradient(red);
         font-size: 2em;
         font-weight: bold;
         span {
@@ -34,12 +39,6 @@
         font-weight: lighter;
         line-height: 1.2;
       }
-      p:nth-child(3) {
-        animation: scale-fade-in 0.4s ease-out forwards;
-        font-size: 15px;
-        line-height: 1.5;
-        color: #fbf6fe;
-      }
     }
 
     .landing-photo {
@@ -48,8 +47,11 @@
       width: 250px;
       border-radius: 100%;
       backdrop-filter: blur(24px);
-      background-color: rgba(0, 0, 0, 0.3);
+      background-color: $hover-color-005;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.19);
+      &:hover {
+        filter: brightness(1.1);
+      }
       img {
         width: 100%;
         height: 100%;

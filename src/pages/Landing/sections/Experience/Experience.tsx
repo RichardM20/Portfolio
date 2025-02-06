@@ -1,5 +1,7 @@
 import React from 'react';
 
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { t } from 'i18next';
 
 import BlurCardContainer from '../../../../shared/componentes/BlurCard/BlurCardContainer';
@@ -12,7 +14,9 @@ const Experience: React.FC = () => {
       {EXPERIENCE.map((experience, index) => (
         <BlurCardContainer key={index} className="experience-item flex flex-col items-start w-full">
           <div className="top flex flex-row justify-between items-center">
-            <div className="icon flex items-center justify-center">{t(experience.icon)}</div>
+            <div className="icon flex items-center justify-center">
+              <FontAwesomeIcon icon={experience.icon} />
+            </div>
             <div className="number">{experience.count}</div>
           </div>
           <div className="flex flex-col justify-start w-full">

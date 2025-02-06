@@ -1,3 +1,5 @@
+@use './colors.scss' as *;
+
 @keyframes scale-fade-in {
   from {
     transform: scale(0);
@@ -20,5 +22,11 @@
     transform: translateY(0) scale(1);
     opacity: 1;
   }
+}
+
+@mixin text-gradient ($endColor: $secondary-color-500){
+  background: linear-gradient(to right, $primary-color-800, $endColor);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
  

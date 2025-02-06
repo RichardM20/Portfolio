@@ -20,5 +20,10 @@
   "total_projects": "Proyectos totales",
   "total_projects_text": "Proyectos en los que he trabajado a lo largo de mi carrera",
   "years_experience_text": "Años en los que he trabajado como desarrollador",
-  "tech_stack": "Tecnologías"
+  "tech_stack": "Tecnologías",
+  "demo": "Abrir",
+  "portfolio_showcase": "Portafolio de proyectos",
+  "portfolio_showcase_text": "Explora mi trayectoria a través de proyectos y experiencia técnica. Cada sección representa un hito en mi camino de aprendizaje continuo.",
+  "tech_used": "Tecnologías utilizadas",
+  "back": "Volver"
 }

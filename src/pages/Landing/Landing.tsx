@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { faFileLines } from '@fortawesome/free-solid-svg-icons';
 import { t } from 'i18next';
 import { Trans } from 'react-i18next';
 
@@ -32,7 +33,12 @@ const Landing: React.FC<LandingProps> = ({ children }) => {
           </p>
           <p>{t(TRANSLATIONS_GLOBAL.profession_text)}</p>
           <div className="actions flex flex-row">
-            <GenericButton text={t(TRANSLATIONS_GLOBAL.download)} action={() => {}} style="gradient" />
+            <GenericButton
+              leadingIcon={faFileLines}
+              text={t(TRANSLATIONS_GLOBAL.download)}
+              action={() => {}}
+              style="gradient"
+            ></GenericButton>
           </div>
         </div>
         <div className="landing-photo">

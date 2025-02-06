@@ -27,6 +27,11 @@ $secondary-color-950: #4a0076;
 $primary-text-color: #ffffff;
 $primary-text-color-100: #eeeeee;
 $primary-text-color-200: #d3d3d3;
+$primary-text-color-300: #b0b0b0;
+$primary-text-color-400: #8a8a8a;
 
+$hover-color-001:rgba(255, 255, 255, 0.01);
 $hover-color-005:rgba(255, 255, 255, 0.05);
 $hover-color-01:rgba(255, 255, 255, 0.1);
+
+$hover-primary-color-01:rgba($color: $primary-color-600, $alpha: 0.1);

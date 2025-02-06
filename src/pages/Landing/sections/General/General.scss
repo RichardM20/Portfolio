@@ -2,36 +2,48 @@
 @use '../../../../theme/styles.scss' as *;
 
 .general-container {
-  p {
-    font-size: 2em;
-    font-weight: bold;
+  gap: 18px;
+  .top{
+    gap: 14px;
+    p {
+      font-size: 2em;
+      font-weight: bold;
+      @include text-gradient;
+      margin: 0;
+    }
+    .subtle{
+      max-width: 600px;
+      text-align: center;
+      font-size: 1em;
+      line-height: 1.1;
+    }
   }
   .tabbar-container {
     width: 100%;
-    gap: 18px;
     padding: 12px;
-    background: $hover-color-005;
+    background: $hover-color-001;
     .tabbar-item {
       height: 48px;
       width: 100%;
       border-radius: 4px;
-      transition: background 0.2s, font-weight 0.2s;
+      transition: all 0.3s ease;
       user-select: none;
       position: relative;
       overflow: hidden;
       color: $primary-text-color-200;
+      font-size: 1em;
       &:hover {
         cursor: pointer;
       }
       &.active {
-        background: $hover-color-01;
+        background: $hover-color-005;
         font-weight: bold;
         color: $primary-text-color;
       }
       .ripple {
         position: absolute;
         border-radius: 50%;
-        background: rgba(255, 255, 255, 0.5);
+        background: $secondary-color-100; 
         transform: scale(0);
         animation: ripple-animation 0.6s linear;
       }

@@ -2,13 +2,17 @@ import React from 'react';
 
 import { t } from 'i18next';
 
-import './General.scss';
 import BlurCardContainer from '../../../../shared/componentes/BlurCard/BlurCardContainer';
 import { TABBAR_ITEMS } from '../../../../shared/constants/tabbar';
+import './General.scss';
+import { TRANSLATIONS_GLOBAL } from '../../../../shared/constants/translations';
 
-const Tabbar = () => {
-  const [tabSelected, setTabSelected] = React.useState<number>(0);
+interface ITabbar {
+  tabSelected: number;
+  setTabSelected: (index: number) => void;
+}
 
+const Tabbar: React.FC<ITabbar> = ({ setTabSelected, tabSelected }) => {
   const handleTabbarItemClick = (event: React.MouseEvent<HTMLDivElement>, index: number) => {
     if (tabSelected === index) return;
     const target = event.currentTarget;
@@ -35,12 +39,15 @@ const Tabbar = () => {
 
   return (
     <div className="general-container flex flex-col justify-center items-center w-full">
-      <p>Some title</p>
+      <div className="top flex flex-col justify-center items-center w-full">
+        <p>{t(TRANSLATIONS_GLOBAL.portfolio_showcase)}</p>
+        <div className="subtle">{t(TRANSLATIONS_GLOBAL.portfolio_showcase_text)}</div>
+      </div>
       <BlurCardContainer className="tabbar-container flex flex-row justify-center items-center">
         {TABBAR_ITEMS.map((item, index) => (
           <div
             key={index}
-            className={`tabbar-item flex flex-row justify-center items-center ${tabSelected === index ? 'active' : ''}`}
+            className={`tabbar-item flex flex-col justify-center items-center ${tabSelected === index ? 'active' : ''}`}
             onClick={(e) => handleTabbarItemClick(e, index)}
           >
             {t(item.label)}

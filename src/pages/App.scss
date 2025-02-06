@@ -17,15 +17,6 @@ body {
   background-size: cover;
   background-attachment: scroll;
   background-repeat: no-repeat;
-  .mask{
-    backdrop-filter: blur(38px);
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: 2;
-    padding: 0;
-    
-  }
 }
 :focus-visible {
   outline: solid 1px $primary-color-800;

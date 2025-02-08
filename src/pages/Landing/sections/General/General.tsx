@@ -40,7 +40,7 @@ const Tabbar: React.FC<ITabbar> = ({ setTabSelected, tabSelected }) => {
   return (
     <div className="general-container flex flex-col justify-center items-center w-full">
       <div className="top flex flex-col justify-center items-center w-full">
-        <p>{t(TRANSLATIONS_GLOBAL.portfolio_showcase)}</p>
+        <h1>{t(TRANSLATIONS_GLOBAL.portfolio_showcase)}</h1>
         <div className="subtle">{t(TRANSLATIONS_GLOBAL.portfolio_showcase_text)}</div>
       </div>
       <BlurCardContainer className="tabbar-container flex flex-row justify-center items-center">

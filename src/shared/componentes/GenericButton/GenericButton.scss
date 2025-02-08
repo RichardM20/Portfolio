@@ -6,8 +6,8 @@
   cursor: pointer;
   gap: 8px;
   &.gradient {
-    background: linear-gradient(to right, $primary-color-800, $secondary-color-600);
-    color: white;
+    background: linear-gradient(to right, $primary-color-800, $secondary-color-400);
+    color: $primary-text-color;
     border: none;
     border-radius: 4px;
     font-size: 0.8em;

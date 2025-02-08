@@ -3,15 +3,13 @@
 
 .general-container {
   gap: 18px;
-  .top{
+  .top {
     gap: 14px;
-    p {
-      font-size: 2em;
-      font-weight: bold;
+    h1 {
       @include text-gradient;
       margin: 0;
     }
-    .subtle{
+    .subtle {
       max-width: 600px;
       text-align: center;
       font-size: 1em;
@@ -43,7 +41,7 @@
       .ripple {
         position: absolute;
         border-radius: 50%;
-        background: $secondary-color-100; 
+        background: $secondary-color-100;
         transform: scale(0);
         animation: ripple-animation 0.6s linear;
       }

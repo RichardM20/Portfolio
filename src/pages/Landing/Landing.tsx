@@ -17,35 +17,37 @@ interface LandingProps {
 const Landing: React.FC<LandingProps> = ({ children }) => {
   return (
     <div className="landing flex flex-col">
-      <div className="info flex justify-between items-center">
-        <div className="me">
-          <p>
-            {
-              <Trans
-                i18nKey={TRANSLATIONS_GLOBAL.greeting}
-                components={{
-                  span: <span className="name"></span>,
-                  br: <br />
-                }}
-                values={{ user: USER_NAME }}
-              />
-            }
-          </p>
-          <p>{t(TRANSLATIONS_GLOBAL.profession_text)}</p>
-          <div className="actions flex flex-row">
-            <GenericButton
-              leadingIcon={faFileLines}
-              text={t(TRANSLATIONS_GLOBAL.download)}
-              action={() => {}}
-              style="gradient"
-            ></GenericButton>
+      <div className="mask flex flex-col gap-48">
+        <div className="info flex justify-between items-center">
+          <div className="me">
+            <p>
+              {
+                <Trans
+                  i18nKey={TRANSLATIONS_GLOBAL.greeting}
+                  components={{
+                    span: <span className="name"></span>,
+                    br: <br />
+                  }}
+                  values={{ user: USER_NAME }}
+                />
+              }
+            </p>
+            <p>{t(TRANSLATIONS_GLOBAL.profession_text)}</p>
+            <div className="actions flex flex-row">
+              <GenericButton
+                leadingIcon={faFileLines}
+                text={t(TRANSLATIONS_GLOBAL.download)}
+                action={() => {}}
+                style="gradient"
+              ></GenericButton>
+            </div>
+          </div>
+          <div className="landing-photo">
+            <img src="https://avatars.githubusercontent.com/u/64317751?v=4" />
           </div>
         </div>
-        <div className="landing-photo">
-          <img src="https://avatars.githubusercontent.com/u/64317751?v=4" />
-        </div>
+        {children}
       </div>
-      {children}
     </div>
   );
 };

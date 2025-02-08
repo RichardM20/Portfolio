@@ -1,21 +1,24 @@
 @use '../../../../../theme/colors.scss' as *;
 @use '../../../../../theme/styles.scss' as *;
 
+@mixin item-background {
+  background-color: rgba($color: $primary-color-100, $alpha: 0.1);
+  color: $primary-text-color-100;
+}
 .project-detail-container {
-  backdrop-filter: blur(12px);
   height: 100%;
-  min-height: 70vh;
-  padding: 5% 10% 0 10%;
-  min-width: 400px;
-
+  min-height: 90vh;
   .top-actions {
     .back-button {
       width: 100px;
       height: 44px;
       border-radius: 8px;
       font-size: 0.9em;
-      background-color: rgba($color: black, $alpha: 0.1);
-   
+      background-color: rgba($color: $primary-color-600, $alpha: 0.15);
+      &:hover {
+        background-color: rgba($color: $secondary-color-600, $alpha: 0.15);
+        cursor: pointer;
+      }
     }
     .subtle {
       color: $primary-text-color-200;
@@ -33,7 +36,8 @@
     .image-container {
       height: 100%;
       overflow: hidden;
-      max-height: 600px;
+      max-height: 450px;
+      max-width: 400px;
       width: 100%;
       border-radius: 4px;
       img {
@@ -45,10 +49,15 @@
       }
     }
     .information-column {
+      max-width: 600px;
+      width: 100%;
+      max-height: 450px;
+      height: 100%;
+      overflow: auto;
       .info-title {
         font-size: 2em;
         font-weight: bolder;
-        @include text-gradient($secondary-color-200);
+        @include text-gradient($secondary-color-100);
         margin: 0;
       }
       .info-description {
@@ -62,21 +71,16 @@
           padding: 14px;
           width: 100%;
           max-width: 100px;
-          background-color: rgba($color: $secondary-color-800, $alpha: 0.1);
-          color: $primary-text-color-100;
+          @include item-background;
           transition: all 0.3s ease;
           font-size: 0.8em;
           &:hover {
-            filter: brightness(1.5);
+            background-color: rgba($color: $primary-color-800, $alpha: 0.2);
             cursor: pointer;
           }
         }
       }
       .technologies-container {
-        .tech-list {
-          background-color: $hover-color-005;
-          padding: 14px;
-        }
         .tech-icon {
           height: 34px;
           width: 34px;
@@ -92,8 +96,8 @@
         .tech-item {
           padding: 14px;
           max-width: 100px;
-          background-color: rgba($color: $secondary-color-800, $alpha: 0.1);
-          color: $primary-text-color-100;
+          width: 100%;
+          @include item-background;
           font-size: 0.8em;
           transition: all 0.3s ease;
         }

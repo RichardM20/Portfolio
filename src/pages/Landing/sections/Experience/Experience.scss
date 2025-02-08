@@ -1,10 +1,10 @@
 @use '../../../../theme/colors.scss' as *;
+@use '../../../../theme/styles.scss' as *;
 
 .experience-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  
   @media (max-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
+    flex-direction: column;
   }
   @media (max-width: 480px) {
     grid-template-columns: 1fr;
@@ -13,7 +13,7 @@
     margin: 0;
   }
   .experience-item {
-    height: 100px;
+    height: 120px;
     width: 100%;
     max-width: 350px;
     border-radius: 8px;
@@ -23,12 +23,12 @@
     user-select: none;
     transition: all 0.3s ease;
     &:hover {
-      box-shadow: 0 0 40px 0 rgba($color: $secondary-color-600, $alpha: 0.12);
+      box-shadow: 0 0 80px 0 rgba($color: $secondary-color-600, $alpha: 0.2);
       background: $hover-color-01;
       filter: brightness(1.2);
       cursor: pointer;
-      
     }
+
     .top {
       .icon {
         height: 34px;
@@ -37,12 +37,13 @@
         border-radius: 100%;
       }
       .number {
+        font-size: 1em;
         font-weight: bolder;
       }
     }
 
     .title {
-      font-size: 1.0em;
+      font-size: 1em;
       font-weight: bold;
       color: $primary-text-color-100;
       overflow: hidden;

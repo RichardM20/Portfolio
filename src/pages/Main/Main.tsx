@@ -1,6 +1,7 @@
 import React, { useCallback } from 'react';
 
 import Landing from '../Landing/Landing';
+import About from '../Landing/sections/About/About';
 import Experience from '../Landing/sections/Experience/Experience';
 import General from '../Landing/sections/General/General';
 import Projects from '../Landing/sections/Projects/Projects';
@@ -12,6 +13,8 @@ function Main() {
     switch (tabSelected) {
       case 0:
         return <Projects />;
+      case 1:
+        return <About />;
       default:
         return <></>;
     }

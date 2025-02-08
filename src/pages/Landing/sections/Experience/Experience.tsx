@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { t } from 'i18next';
 
@@ -12,7 +11,7 @@ const Experience: React.FC = () => {
   return (
     <div className="experience-container flex flex-row justify-between items-center w-full">
       {EXPERIENCE.map((experience, index) => (
-        <BlurCardContainer key={index} className="experience-item flex flex-col items-start w-full">
+        <BlurCardContainer key={index} className="experience-item flex flex-col justify-center items-start w-full">
           <div className="top flex flex-row justify-between items-center">
             <div className="icon flex items-center justify-center">
               <FontAwesomeIcon icon={experience.icon} />

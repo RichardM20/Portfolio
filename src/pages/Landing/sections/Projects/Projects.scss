@@ -7,7 +7,7 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 14px;
   padding: 0 0px 24px 0px;
- 
+  min-height: 60vh;
   .skeleton{
     height: 400px;
     width: 400px;

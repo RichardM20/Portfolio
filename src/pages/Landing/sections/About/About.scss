@@ -1,0 +1,13 @@
+@use '../../../../theme/colors.scss' as *;
+
+.about-container {
+  padding: 44px;
+  min-height: 60vh;
+  p {
+    text-align: start;
+    font-size: 0.9em;
+    .name {
+      color: $primary-text-color-400;
+    }
+  }
+}

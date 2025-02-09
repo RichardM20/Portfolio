@@ -1,49 +1,7 @@
 @use './colors.scss' as *;
 
-$box-shadow-card: 0 4px 6px rgba(0, 0, 0, 0.1);
-$box-shadow-card-medium: 0 6px 12px rgba(0, 0, 0, 0.2);
-$gradient-bottom-topRight: linear-gradient(to left bottom, $primary-color, $primary-color-light);
-$gradient-to-top: linear-gradient(to top, $primary-color, $primary-color-light);
-$gradient-top-bottom: linear-gradient(to bottom, $quaternary-background-color, $secondary-background-color);
-
-@mixin gradient ($begin-color){
-  background: linear-gradient(to right, $begin-color, $primary-color-light);
-}
-
-@mixin dark-theme {
-  color: $secondary-color-text;
-  background-color: $secondary-background-color;
-}
-
-@mixin light-theme {
-  color: $primary-color-text;
-  background-color: $primary-background-color;
-}
-
-@mixin background-transition {
-  transition:
-    background-color 0.3s ease,
-    color 0.3s ease;
-}
-
-@mixin title-style($content: '') {
-  font-weight: bold;
-  font-size: 24px;
-  text-decoration: underline;
-  text-underline-offset: 10px;
-  color: $primary-color;
-  &.dark {
-    color: white;
-  }
-  @if $content == 'skill' {
-    margin-bottom: 24px;
-    text-decoration: none;
-  }
-
-  &:hover {
-    color: $primary-color-light;
-    cursor: none;
-  }
+@mixin animate-scale-fade-in($s: 0.5s) {
+  animation: scale-fade-in $s ease-out forwards;
 }
 
 @keyframes scale-fade-in {
@@ -57,6 +15,8 @@ $gradient-top-bottom: linear-gradient(to bottom, $quaternary-background-color, $
     opacity: 1;
   }
 }
+
+
 @keyframes scale-fade-in-up {
   from {
     transform: translateY(100%) scale(0);
@@ -68,3 +28,10 @@ $gradient-top-bottom: linear-gradient(to bottom, $quaternary-background-color, $
     opacity: 1;
   }
 }
+
+@mixin text-gradient ($endColor: $secondary-color-500){
+  background: linear-gradient(to right, $primary-color-800, $endColor);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+ 

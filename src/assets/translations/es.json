@@ -1,6 +1,6 @@
 {
   "profession": "Desarrollador Flutter",
-  "greeting": "Hola, soy <span>{{user}}</span>",
+  "greeting": "Hola, soy<br/><span>{{user}}</span>",
   "profession_text": "Soy un desarrollador de software apasionado de Colombia, siempre buscando soluciones innovadoras. Disfruto creando y perfeccionando aplicaciones que marcan la diferencia.",
   "home": "Inicio",
   "projects": "Proyectos",
@@ -8,10 +8,22 @@
   "about": "Acerca de",
   "my_skills": "Mis habilidades",
   "about_me_title": "Acerca de mí",
-  "about_me": "Tengo más de {{years}} años de experiencia laboral en desarrollo de software. Durante este tiempo, he tenido la oportunidad de trabajar en varias empresas desempeñándome como desarrollador móvil y, en algunas ocasiones, también como desarrollador web. Mi especialización se centra principalmente en el framework Flutter, pero también he trabajado como desarrollador front-end web, utilizando bibliotecas como React con TypeScript. Me gusta enfrentar desafíos que, en ocasiones, parecen casi imposibles de superar, y me esfuerzo cada día por superarlos. Disfruto compartir mis opiniones y expresar mi perspectiva en cualquier situación. Cuando me enfrento a un obstáculo al intentar encontrar una solución, trato de alejarme del problema, respirar y regresar con una visión más clara y renovada. Estoy en un proceso constante de aprendizaje y siempre estoy dispuesto a recibir opiniones o críticas, ya que considero que brindan valiosas oportunidades para el crecimiento y la mejora, tanto a nivel personal como profesional",
+  "about_me": "Soy un desarrollador de software con más de {{years}} años de experiencia, especializado en Flutter y desarrollo móvil. También he trabajado con React y TypeScript en el desarrollo web front-end. Me apasiona enfrentar desafíos complejos y encontrar soluciones eficientes a problemas que parecen imposibles. Me gusta expresar mis ideas y perspectivas, y creo firmemente en el aprendizaje continuo. Cuando enfrento obstáculos, tomo distancia, respiro y regreso con una mentalidad más clara y enfocada. Siempre estoy abierto a comentarios y críticas constructivas, ya que los veo como valiosas oportunidades de crecimiento personal y profesional. <br /><span>Saliendo un poco del tema profesional, por si es de su interés: fuera del código, disfruto jugar videojuegos, explorar cosas nuevas y leer teorías sobre la vida y el universo.</span>",
   "footer_text": "Creado por {{user}} | Todos los derechos reservados",
   "portfolio": "Portafolio personal",
-  "download": "Descargar",
+  "download": "Descargar CV",
   "navbar_name": "Rick developer",
-  "details": "Detalles"
+  "details": "Detalles",
+  "yaers_experience": "Años de experiencia",
+  "certifications": "Certificaciones",
+  "certifications_text": "Habilidades profesionales validadas",
+  "total_projects": "Proyectos totales",
+  "total_projects_text": "Proyectos en los que he trabajado a lo largo de mi carrera",
+  "years_experience_text": "Años en los que he trabajado como desarrollador",
+  "tech_stack": "Tecnologías",
+  "demo": "Abrir",
+  "portfolio_showcase": "Portafolio de proyectos",
+  "portfolio_showcase_text": "Explora mi trayectoria a través de proyectos y experiencia técnica. Cada sección representa un hito en mi camino de aprendizaje continuo.",
+  "tech_used": "Tecnologías utilizadas",
+  "back": "Volver"
 }

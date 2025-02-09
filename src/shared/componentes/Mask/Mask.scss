@@ -1,0 +1,16 @@
+@use '../../../theme/colors.scss' as *;
+
+.mask-tempalte {
+  backdrop-filter: blur(12px);
+  height: 100%;
+  width: 100%;
+  min-width: 400px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 5% 10% 0 10%;
+  min-height: 90vh;
+  color: $primary-text-color;
+  @media screen and (max-width: 950px) {
+    padding: 0 5%;
+  }
+}

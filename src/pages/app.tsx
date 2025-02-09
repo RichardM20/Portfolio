@@ -1,15 +1,12 @@
 import React, { useEffect } from 'react';
 
 import { useTranslation } from 'react-i18next';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
+import ProjectDetail from './Landing/sections/Projects/ProjectDetail/ProjectDetail';
+import Main from './Main/Main';
 import { TRANSLATIONS_GLOBAL } from '../shared/constants/translations';
-import { ThemeProvider } from '../shared/context/themeContext';
-import About from './Landing/sections/About/About';
-import Contact from './Landing/sections/Contact/Contact';
-import Footer from './Landing/sections/Footer/Footer';
-import Navbar from './Landing/sections/Navbar/Navbar';
-import Profile from './Landing/sections/Profile/Profile';
-import Projects from './Landing/sections/Projects/Projects';
+import { ProjectsProvider } from '../shared/projectContext';
 import '../theme/utils.scss';
 import './App.scss';
 
@@ -21,16 +18,16 @@ function App() {
   }, [t]);
 
   return (
-    <div data-experience="new" className="app ">
-      <ThemeProvider>
-        <Navbar />
-        <Profile />
-        <Projects />
-        <About />
-        <Contact />
-        <Footer />
-      </ThemeProvider>
-    </div>
+    <ProjectsProvider>
+      <Router>
+        <div data-experience="new" className="app">
+          <Routes>
+            <Route path="/*" element={<Main />} />
+            <Route path="detail-project" element={<ProjectDetail />} />
+          </Routes>
+        </div>
+      </Router>
+    </ProjectsProvider>
   );
 }
 

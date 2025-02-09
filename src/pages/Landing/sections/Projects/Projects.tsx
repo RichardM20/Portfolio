@@ -1,35 +1,25 @@
-import type React from 'react';
-import { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 
 import { Skeleton } from '@mui/material';
-import { t } from 'i18next';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
 
-import ProjectCard from './sections/ProjectCard';
-import { TRANSLATIONS_GLOBAL } from '../../../../shared/constants/translations';
-import { useTheme } from '../../../../shared/context/themeContext';
-import type { IProjectData } from '../../../../shared/interfaces/projects';
+import ProjectCard from './Card/Card';
+import { IProjectData } from '../../../../shared/interfaces/projects';
 import { FirebaseServices } from '../../../../shared/services/firebase/firebase';
-
 import './Projects.scss';
 
 const Projects: React.FC = () => {
   const [projects, setProjects] = useState<IProjectData[]>([]);
-  const [error, setError] = useState<Error | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
-
-  const { theme } = useTheme();
+  const [error, setError] = useState<boolean>(false);
 
   const getProjects = useCallback(async () => {
     setLoading(true);
-    setError(null);
+    setError(false);
     try {
-      const projects = await FirebaseServices.getAllProjects();
-      setProjects(projects);
-    } catch (error) {
-      setError(error as Error);
+      const resp = await FirebaseServices.getAllProjects();
+      setProjects(resp);
+    } catch {
+      setError(true);
     } finally {
       setLoading(false);
     }
@@ -38,66 +28,36 @@ const Projects: React.FC = () => {
   useEffect(() => {
     getProjects();
   }, [getProjects]);
-
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    centerMode: true,
-    centerPadding: '10px',
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          centerPadding: '40px'
-        }
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
-          centerPadding: '20px'
-        }
-      }
-    ]
-  };
-
+  if (loading) {
+    return (
+      <div className="projects-container flex flex-wrap justify-start items-stretch">
+        {Array.from({ length: 3 }).map((_, index) => (
+          <Skeleton key={index} variant="rectangular" className="skeleton" />
+        ))}
+      </div>
+    );
+  }
   if (error) {
-    return <div>{error.message}</div>;
+    return (
+      <div className="projects-container flex flex-col justify-center items-center">
+        <h1>There was an error loading the projects</h1>
+      </div>
+    );
   }
 
   return (
-    <div className={`projects flex flex-col items-center ${theme}`}>
-      <p>{t(TRANSLATIONS_GLOBAL.projects)}</p>
-      {loading ? (
-        <div className="skeletons">
-          {Array.from({ length: 3 }).map((_, index) => (
-            <div key={index} className="skeleton">
-              <Skeleton className="skeleton" variant="rectangular" />
-            </div>
-          ))}
-        </div>
-      ) : (
-        <div className="project-carousel">
-          <Slider {...settings}>
-            {projects.map((project, index) => (
-              <div key={index} className="project-slide">
-                <ProjectCard
-                  id={project.id}
-                  title={project.title}
-                  description={project.description}
-                  image={project.image}
-                  technologies={project.technologies}
-                  releaseData={project.releaseData}
-                />
-              </div>
-            ))}
-          </Slider>
-        </div>
-      )}
+    <div className="projects-container flex flex-wrap justify-start items-stretch">
+      {projects.map((project, index) => (
+        <ProjectCard
+          key={index}
+          id={project.id}
+          title={project.title}
+          description={project.description}
+          image={project.image}
+          technologies={project.technologies}
+          releaseData={project.releaseData}
+        />
+      ))}
     </div>
   );
 };

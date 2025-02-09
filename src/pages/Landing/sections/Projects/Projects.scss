@@ -1,34 +1,19 @@
 @use '../../../../theme/colors.scss' as *;
-@use '../../../../theme/styles.scss' as *;
 
-.projects {
-  background-color: $smoked-white;
-  padding-bottom: 24px;
+.projects-container {
   width: 100%;
-  min-width: 420px;
-  &.dark {
-    background-color: $quaternary-background-color;
+  height: 100%;
+  gap: 14px;
+  padding: 0 0px 24px 0px;
+  min-height: 60vh;
+  @media screen and (max-width: 950px) {
+   max-height: 600px;
+   overflow-y: scroll;;  
   }
-
-  p {
-    @include title-style;
-    margin-bottom: 24px;
-  }
-
-  .project-carousel {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    
-  }
-
-  .skeletons {
-    width: 50%;
-    display: grid;
+  .skeleton{
     height: 400px;
-    .skeleton {
-      height: 100%;
-    }
+    width: 400px;
+    background-color: grey;
+    border-radius: 4px;
   }
- 
 }

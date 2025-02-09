@@ -1,20 +1,36 @@
-$primary-color: #127bb3;
-$primary-color-light: #00a0f7;
+$primary-color-50: #effbff;
+$primary-color-100: #def6ff;
+$primary-color-200: #b6efff;
+$primary-color-300: #75e5ff;
+$primary-color-400: #2cd9ff;
+$primary-color-500: #00ccff;
+$primary-color-600: #009fd4;
+$primary-color-700: #007fab;
+$primary-color-800: #006b8d;
+$primary-color-900: #065874;
+$primary-color-950: #04384d;
 
-$secondary-color: #1588c5;
-$secondary-color-light: #0eb9dc;
+$secondary-color-50: #edf9ff;
+$secondary-color-100: #d6f0ff;
+$secondary-color-200: #b5e7ff;
+$secondary-color-300: #83d9ff;
+$secondary-color-400: #48c2ff;
+$secondary-color-500: #1ea1ff;
+$secondary-color-600: #0682ff;
+$secondary-color-700: #006eff;
+$secondary-color-800: #0854c5;
+$secondary-color-900: #0d4a9b;
+$secondary-color-950: #0e2d5d;
 
-$primary-color-text: #101010;
-$secondary-color-text: #fefefe;
 
-$primary-background-color: #fdfdfd;
-$secondary-background-color: #1a252f;
-$tertiary-background-color: #141d25;
-$quaternary-background-color: #141b22;
-$smoked-white: #f8f8f8;
+$primary-text-color: #ffffff;
+$primary-text-color-100: #eeeeee;
+$primary-text-color-200: #d3d3d3;
+$primary-text-color-300: #b0b0b0;
+$primary-text-color-400: #8a8a8a;
 
-$default-color-white: #f1f1f1;
-$default-color-card: white;
-$default-color-card-dark: $secondary-background-color;
+$hover-color-001:rgba(255, 255, 255, 0.01);
+$hover-color-005:rgba(255, 255, 255, 0.05);
+$hover-color-01:rgba(255, 255, 255, 0.1);
 
-$transparent-color: #00a1f752;
+$hover-primary-color-01:rgba($color: $primary-color-600, $alpha: 0.1);

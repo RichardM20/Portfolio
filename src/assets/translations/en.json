@@ -1,6 +1,6 @@
 {
   "profession": "Flutter Developer",
-  "greeting": "Hi, I'm <span>{{user}}</span>",
+  "greeting": "Hello, I'm<br/><span>{{user}}</span>",
   "profession_text": "I'm a passionate software developer from Colombia, constantly searching for innovative solutions. I enjoy creating and perfecting applications that make a difference.",
   "home": "Home",
   "projects": "Projects",
@@ -8,10 +8,22 @@
   "about": "About",
   "my_skills": "My Skills",
   "about_me_title": "About me",
-  "about_me": "I have over {{years}} years of professional experience in software development. During this time, I have had the opportunity to work at several companies in the role of mobile developer, and on some occasions, also as a web developer. My specialization mainly focuses on the Flutter framework, but I have also worked as a front-end web developer using libraries like React with TypeScript. I enjoy taking on challenges that sometimes seem almost impossible to overcome, and I strive every day to conquer them. I like to share my opinions and express my perspective in any situation. When I encounter an obstacle in finding a solution, I try to step away from the problem, breathe, and return with a clearer and stronger mindset. I am in a constant learning process and am always open to feedback or criticism, as I believe they provide valuable opportunities for growth and improvement, both personally and professionally",
+  "about_me": "I am a software developer with over {{years}} years of experience, specializing in Flutter and mobile development. I have also worked with React and TypeScript in front-end web development. I thrive on tackling complex challenges and enjoy finding efficient solutions to seemingly impossible problems.I like to express my ideas and perspectives, and I strongly believe in continuous learning. When I encounter obstacles, I take a step back, breathe, and return with a clearer and stronger mindset. I am always open to feedback and constructive criticism, as I see them as valuable opportunities for personal and professional growth. <br /><span>Stepping away from the professional side, in case you're interested: outside of coding, I enjoy playing video games, exploring new things, and reading theories about life and the universe.</span>",
   "footer_text": "Creadted by {{user}} | All rights reserved",
   "portfolio": "Personal portfolio",
-  "download": "Downlaod",
+  "download": "Downlaod CV",
   "navbar_name": "Rick developer",
-  "details": "Details"
+  "details": "Details",
+  "yaers_experience": "Years of experience",
+  "certifications": "Certifications",
+  "certifications_text": "Professional skills validated",
+  "total_projects": "Total projects",
+  "total_projects_text": "Projects I have worked on throughout my career",
+  "years_experience_text": "Years in which I have worked as a developer",
+  "tech_stack": "Tech stack",
+  "demo": "Demo",
+  "portfolio_showcase": "Portfolio showcase",
+  "portfolio_showcase_text": "Explore my journey through projects and technical expertise. Each section represent a milestone in my continuous learning path",
+  "tech_used": "Technologies used",
+  "back": "Back"
 }

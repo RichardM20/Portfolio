@@ -1,32 +1,23 @@
 @use '../../../../theme/colors.scss' as *;
+@use '../../../../theme/styles.scss' as *;
+@use '../../../../theme/fonts.scss' as *;
 
 .navbar {
   height: 60px;
-  display: flex;
-  width: 100%;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-  min-width: 420px;
+  padding: 0 2%;
+  min-width: 300px;
   .name {
-    color: $primary-color;
-    cursor: pointer;
-    padding-left: 14px;
+    @include animate-scale-fade-in;
+    @include text-gradient($secondary-color-900);
+    @include subtitle-style-bold;
   }
-  .navbar-item {
-    padding: 15px;
-    text-decoration: none;
-    transition: transform 0.3s ease;
-    &.theme {
-      transform: translateY(0px);
-      &.dark {
-        filter: invert(1);
-      }
-      &:hover {
-        transform: translateY(-2px);
-      }
-    }
-    &:hover {
-      color: $primary-color;
-      cursor: pointer;
+  .navbar-items {
+    .navbar-item {
+      @include animate-scale-fade-in;
+      @include body-style;
+      color: $primary-text-color-100;
+      transition: all 0.3s ease !important;
+      cursor: pointer !important;
     }
   }
 }

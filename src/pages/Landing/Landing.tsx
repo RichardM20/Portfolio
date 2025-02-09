@@ -4,6 +4,7 @@ import { faFileLines } from '@fortawesome/free-solid-svg-icons';
 import { t } from 'i18next';
 import { Trans } from 'react-i18next';
 
+import Navbar from './sections/Navbar/Navbar';
 import GenericButton from '../../shared/componentes/GenericButton/GenericcButton';
 import { TRANSLATIONS_GLOBAL } from '../../shared/constants/translations';
 import { USER_NAME } from '../../shared/constants/user';
@@ -17,6 +18,7 @@ interface LandingProps {
 const Landing: React.FC<LandingProps> = ({ children }) => {
   return (
     <div className="landing flex flex-col">
+      <Navbar />
       <div className="mask flex flex-col gap-48">
         <div className="info flex justify-between items-center">
           <div className="me">

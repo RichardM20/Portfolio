@@ -1,17 +1,16 @@
 @use '../../theme/styles.scss' as *;
 @use '../../theme/colors.scss' as *;
+@use '../../theme/fonts.scss' as *;
 
 .landing {
   backdrop-filter: blur(24px);
-
   .mask {
     max-width: 1400px;
-    min-width: 400px;
-    margin: 0 auto;
+    min-width: 300px;
     padding: 5% 10% 0 10%;
     color: $primary-text-color;
     @media screen and (max-width: 950px) {
-      padding: 0 5%;
+      padding: 5%;
     }
     .info {
       gap: 10%;
@@ -19,30 +18,33 @@
       flex-grow: 1;
       flex-shrink: 1;
       flex-basis: auto;
+      @media screen and (max-width: 950px) {
+        flex-direction: column-reverse;
+        .me {
+          width: 80% !important;
+          text-align: start;
+        }
+      }
       .me {
         width: 50%;
         p:nth-child(1) {
-          animation: scale-fade-in 0.2s ease-out forwards;
+          @include animate-scale-fade-in;
           @include text-gradient(white);
-          font-size: 2em;
-          font-weight: bold;
+          @include title-style;
           span {
             -webkit-text-fill-color: initial;
             background: none;
             color: $primary-text-color;
           }
-          line-height: 1.1;
         }
         p:nth-child(2) {
-          animation: scale-fade-in 0.3s ease-out forwards;
-          font-size: 1em;
-          font-weight: lighter;
-          line-height: 1.2;
+          @include animate-scale-fade-in(0.3s);
+          @include subtitle-style;
         }
       }
 
       .landing-photo {
-        animation: scale-fade-in 0.5s ease-out forwards;
+        @include animate-scale-fade-in(0.5s);
         height: 250px;
         width: 250px;
         border-radius: 100%;
@@ -57,17 +59,6 @@
           height: 100%;
           border-radius: inherit;
         }
-      }
-    }
-  }
-
-  @media (max-width: 950px) {
-    .info {
-      display: flex;
-      flex-direction: column-reverse;
-      .me {
-        width: 80%;
-        text-align: center;
       }
     }
   }

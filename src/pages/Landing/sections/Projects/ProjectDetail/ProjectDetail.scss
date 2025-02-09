@@ -1,20 +1,23 @@
 @use '../../../../../theme/colors.scss' as *;
 @use '../../../../../theme/styles.scss' as *;
+@use '../../../../../theme/fonts.scss' as *;
 
 @mixin item-background {
   background-color: rgba($color: $primary-color-100, $alpha: 0.1);
   color: $primary-text-color-100;
 }
+
 .project-detail-container {
-  height: 100%;
-  min-height: 90vh;
+  min-height: 60vh;
   .top-actions {
+    margin-top: 24px;
     .back-button {
       width: 100px;
       height: 44px;
       border-radius: 8px;
-      font-size: 0.9em;
-      background-color: rgba($color: $primary-color-600, $alpha: 0.15);
+      @include subtitle-style;
+      @include animate-scale-fade-in(0.2s);
+      background-color: rgba($color: $primary-color-600, $alpha: 0.1);
       &:hover {
         background-color: rgba($color: $secondary-color-600, $alpha: 0.15);
         cursor: pointer;
@@ -22,24 +25,27 @@
     }
     .subtle {
       color: $primary-text-color-200;
-      font-size: 0.8em;
-      font-weight: lighter;
+      @include body-style;
+      @include animate-scale-fade-in(0.3s);
     }
     .project-name {
       color: $primary-text-color-100;
-      font-size: 0.8em;
-      font-weight: 500;
+      @include body-style;
+      @include animate-scale-fade-in(0.4s);
     }
   }
   .project-detail {
-    flex-direction: row-reverse;
+    @media (max-width: 950px) {
+      flex-direction: column !important;
+      width: 80%;
+      padding: 24px 0 24px 0;
+    }
     .image-container {
-      height: 100%;
       overflow: hidden;
       max-height: 450px;
-      max-width: 400px;
-      width: 100%;
+      max-width: 300px;
       border-radius: 4px;
+      @include animate-scale-fade-in(0.5s);
       img {
         width: 100%;
         height: 100%;
@@ -50,56 +56,56 @@
     }
     .information-column {
       max-width: 600px;
-      width: 100%;
       max-height: 450px;
-      height: 100%;
       overflow: auto;
+      padding: 0 14px;
       .info-title {
-        font-size: 2em;
-        font-weight: bolder;
+        @include title-style;
         @include text-gradient($secondary-color-100);
+        @include animate-scale-fade-in(0.6s);
         margin: 0;
+        
       }
       .info-description {
-        width: 100%;
-        font-size: 1em;
+        @include body-style;
+        @include animate-scale-fade-in(0.6s);
         color: $primary-text-color-200;
         margin: 0;
       }
       .links-container {
         .link-item {
           padding: 14px;
-          width: 100%;
           max-width: 100px;
           @include item-background;
           transition: all 0.3s ease;
-          font-size: 0.8em;
+          @include body-style;
+          @include animate-scale-fade-in(0.6s);
           &:hover {
-            background-color: rgba($color: $primary-color-800, $alpha: 0.2);
+            background-color: rgba($color: $secondary-color-800, $alpha: 0.1);
             cursor: pointer;
           }
         }
       }
       .technologies-container {
+        @include animate-scale-fade-in(0.7s);
         .tech-icon {
           height: 34px;
           width: 34px;
           background: $hover-color-01;
-          border-radius: 100%;
+          border-radius: 100%;         
         }
         .tech-title {
-          font-size: 1.2em;
-          font-weight: bolder;
+          @include subtitle-style-bold;
           color: $primary-text-color;
           margin: 0;
         }
         .tech-item {
           padding: 14px;
           max-width: 100px;
-          width: 100%;
+          overflow: hidden;
+          text-overflow: ellipsis;
           @include item-background;
-          font-size: 0.8em;
-          transition: all 0.3s ease;
+          @include body-style;
         }
       }
     }

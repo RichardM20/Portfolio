@@ -1,0 +1,52 @@
+$title-font-size: 2em;
+$subtitle-font-size: 1em;
+$body-font-size: 0.9em;
+
+%font-title {
+  font-weight: bold;
+  font-style: normal;
+  font-family: Inter, sans-serif;
+  font-size: $title-font-size;
+  line-height: 110%;
+  letter-spacing: -0.025em;
+}
+
+%font-subtitle {
+  font-weight: lighter;
+  font-style: normal;
+  font-family: Inter, sans-serif;
+  font-size: $subtitle-font-size;
+  line-height: 110%;
+  letter-spacing: -0.025em;
+}
+
+%font-subtitle-style{
+  &-bold{
+    font-weight: bolder;
+    @extend %font-subtitle;
+  }
+  @extend %font-subtitle;
+}
+
+
+%font-body {
+  font-weight: normal;
+  font-style: normal;
+  font-family: Inter, sans-serif;
+  font-size: $body-font-size;
+}
+
+@mixin title-style {
+  @extend %font-title;
+}
+
+@mixin subtitle-style {
+  @extend %font-subtitle-style;
+}
+@mixin subtitle-style-bold {
+  @extend %font-subtitle-style-bold;
+}
+
+@mixin body-style {
+  @extend %font-body;
+}

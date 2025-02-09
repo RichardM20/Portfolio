@@ -38,7 +38,7 @@ const ProjectDetail: React.FC = () => {
           <p className="project-name"> {projectSelected?.title}</p>
         </div>
         <div className="project-detail flex flex-row gap-40">
-          <div className="image-container">
+          <div className="image-container w-full">
             <img src={projectSelected?.image} alt={projectSelected?.title} />
           </div>
           <div className="information-column flex flex-col gap-24">

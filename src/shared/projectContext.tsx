@@ -10,10 +10,14 @@ interface ProjectContextProps {
 const ProjectContext = createContext<ProjectContextProps | undefined>(undefined);
 
 export const ProjectsProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [projectSelected, setProjectSelected] = useState<IProjectData | null>(null);
+  const [projectSelected, setProjectSelected] = useState<IProjectData | null>(() => {
+    const storedProject = localStorage.getItem('projectSelected');
+    return storedProject ? JSON.parse(storedProject) : null;
+  });
 
   const onSelectProject = (val: IProjectData) => {
     setProjectSelected(val);
+    localStorage.setItem('projectSelected', JSON.stringify(val));
   };
 
   return <ProjectContext.Provider value={{ projectSelected, onSelectProject }}>{children}</ProjectContext.Provider>;

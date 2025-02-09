@@ -1,11 +1,12 @@
 @use '../../../../theme/colors.scss' as *;
+@use '../../../../theme/fonts.scss' as *;
 
 .about-container {
-  padding: 44px;
   min-height: 60vh;
+  padding: 0 5%;
   p {
     text-align: start;
-    font-size: 0.9em;
+    @include body-style;
     .name {
       color: $primary-text-color-400;
     }

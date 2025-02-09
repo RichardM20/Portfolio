@@ -3,14 +3,11 @@ import React from 'react';
 import { t } from 'i18next';
 import { useTranslation } from 'react-i18next';
 
-import MOON_ICON from '../../../../assets/icons/moon_3.svg';
-import SUN_ICON from '../../../../assets/icons/sun_2.svg';
 import { TRANSLATIONS_GLOBAL } from '../../../../shared/constants/translations';
-import { useTheme } from '../../../../shared/context/themeContext';
+
 import './Navbar.scss';
 
 const Navbar: React.FC = () => {
-  const { toggleTheme, theme } = useTheme();
   const { i18n } = useTranslation();
 
   const changeLanguage = () => {
@@ -23,13 +20,10 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <div className={'navbar   flex flex-row justify-between items-center relative'}>
+    <div className={'navbar flex flex-row justify-between items-center relative'}>
       <p className="name">{t(TRANSLATIONS_GLOBAL.navbar_name)}</p>
       <div className={'navbar-items flex flex-row  '}>
-        <div className={`navbar-item theme ${theme}`} onClick={toggleTheme}>
-          <img src={theme === 'dark' ? SUN_ICON : MOON_ICON} alt="sun-icon-theme" />
-        </div>
-        <div className={`navbar-item lng ${theme}`} onClick={changeLanguage}>
+        <div className="navbar-item" onClick={changeLanguage}>
           {i18n.language === 'es' ? 'EN' : 'ES'}
         </div>
       </div>

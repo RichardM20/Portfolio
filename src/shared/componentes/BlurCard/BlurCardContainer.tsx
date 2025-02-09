@@ -6,13 +6,28 @@ interface IBlurCardContainer {
   className?: string;
   blurPercentage?: number;
   children: React.ReactNode;
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
   onClick?: () => void;
 }
 
-const BlurCardContainer: React.FC<IBlurCardContainer> = ({ className, blurPercentage = 14, children, onClick }) => {
+const BlurCardContainer: React.FC<IBlurCardContainer> = ({
+  className,
+  blurPercentage = 14,
+  children,
+  onClick,
+  onMouseEnter,
+  onMouseLeave
+}) => {
   const containerClassName = `blur-card-container ${className}`;
   return (
-    <button onClick={onClick} style={{ backdropFilter: `blur(${blurPercentage}px)` }} className={containerClassName}>
+    <button
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+      onClick={onClick}
+      style={{ backdropFilter: `blur(${blurPercentage}px)` }}
+      className={containerClassName}
+    >
       {children}
     </button>
   );

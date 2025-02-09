@@ -1,5 +1,6 @@
 @use '../../../../theme/colors.scss' as *;
 @use '../../../../theme/styles.scss' as *;
+@use '../../../../theme/fonts.scss' as *;
 
 .general-container {
   gap: 18px;
@@ -7,19 +8,20 @@
     gap: 14px;
     h1 {
       @include text-gradient;
+      @include title-style;
       margin: 0;
+      text-align: center;
     }
     .subtle {
       max-width: 600px;
       text-align: center;
-      font-size: 1em;
-      line-height: 1.1;
+      @include subtitle-style;
     }
   }
   .tabbar-container {
     width: 100%;
     padding: 12px;
-    background: $hover-color-001;
+    background: $hover-color-005;
     .tabbar-item {
       height: 48px;
       width: 100%;
@@ -29,13 +31,13 @@
       position: relative;
       overflow: hidden;
       color: $primary-text-color-200;
-      font-size: 1em;
+      @include subtitle-style;
       &:hover {
         cursor: pointer;
       }
       &.active {
         background: $hover-color-005;
-        font-weight: bold;
+        @include subtitle-style-bold;
         color: $primary-text-color;
       }
       .ripple {

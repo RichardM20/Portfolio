@@ -1,14 +1,8 @@
 @use '../../../../theme/colors.scss' as *;
 @use '../../../../theme/styles.scss' as *;
+@use '../../../../theme/fonts.scss' as *;
 
 .experience-container {
-  
-  @media (max-width: 768px) {
-    flex-direction: column;
-  }
-  @media (max-width: 480px) {
-    grid-template-columns: 1fr;
-  }
   p {
     margin: 0;
   }
@@ -19,7 +13,6 @@
     border-radius: 8px;
     padding: 14px;
     background: $hover-color-005;
-    gap: 18px;
     user-select: none;
     transition: all 0.3s ease;
     &:hover {
@@ -37,21 +30,20 @@
         border-radius: 100%;
       }
       .number {
-        font-size: 1em;
         font-weight: bolder;
+        @include subtitle-style;
       }
     }
 
     .title {
-      font-size: 1em;
-      font-weight: bold;
+      @include subtitle-style-bold;
       color: $primary-text-color-100;
       overflow: hidden;
       text-overflow: ellipsis;
     }
     .description {
       color: $primary-text-color-200;
-      font-size: 0.8em;
+      @include body-style;
       display: -webkit-box;
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;

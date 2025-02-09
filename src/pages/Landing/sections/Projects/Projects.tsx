@@ -10,13 +10,16 @@ import './Projects.scss';
 const Projects: React.FC = () => {
   const [projects, setProjects] = useState<IProjectData[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<boolean>(false);
 
   const getProjects = useCallback(async () => {
+    setLoading(true);
+    setError(false);
     try {
       const resp = await FirebaseServices.getAllProjects();
       setProjects(resp);
-    } catch (e) {
-      console.error(e);
+    } catch {
+      setError(true);
     } finally {
       setLoading(false);
     }
@@ -27,16 +30,23 @@ const Projects: React.FC = () => {
   }, [getProjects]);
   if (loading) {
     return (
-      <div className="projects-container">
+      <div className="projects-container flex flex-wrap justify-start items-stretch">
         {Array.from({ length: 3 }).map((_, index) => (
           <Skeleton key={index} variant="rectangular" className="skeleton" />
         ))}
       </div>
     );
   }
+  if (error) {
+    return (
+      <div className="projects-container flex flex-col justify-center items-center">
+        <h1>There was an error loading the projects</h1>
+      </div>
+    );
+  }
 
   return (
-    <div className="projects-container">
+    <div className="projects-container flex flex-wrap justify-start items-stretch">
       {projects.map((project, index) => (
         <ProjectCard
           key={index}

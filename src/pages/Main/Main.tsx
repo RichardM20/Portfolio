@@ -5,6 +5,7 @@ import About from '../Landing/sections/About/About';
 import Experience from '../Landing/sections/Experience/Experience';
 import General from '../Landing/sections/General/General';
 import Projects from '../Landing/sections/Projects/Projects';
+import Tech from '../Landing/sections/Tech/Tech';
 
 function Main() {
   const [tabSelected, setTabSelected] = React.useState<number>(0);
@@ -15,19 +16,19 @@ function Main() {
         return <Projects />;
       case 1:
         return <About />;
+      case 2:
+        return <Tech />;
       default:
         return <></>;
     }
   }, [tabSelected]);
 
   return (
-    <div data-experience="new" className="app">
-      <Landing>
-        <Experience />
-        <General setTabSelected={setTabSelected} tabSelected={tabSelected} />
-        {renderSectionTab()}
-      </Landing>
-    </div>
+    <Landing>
+      <Experience />
+      <General setTabSelected={setTabSelected} tabSelected={tabSelected} />
+      {renderSectionTab()}
+    </Landing>
   );
 }
 

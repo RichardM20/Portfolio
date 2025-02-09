@@ -15,7 +15,7 @@ const Experience: React.FC = () => {
           key={index}
           className="experience-item flex flex-col justify-center items-start w-full gap-20"
         >
-          <div className="top flex flex-row justify-between items-center">
+          <div className="top flex flex-row justify-between items-center w-full">
             <div className="icon flex items-center justify-center">
               <FontAwesomeIcon icon={experience.icon} />
             </div>

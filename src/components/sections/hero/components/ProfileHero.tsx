@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Code } from "lucide-react";
-import { personalInfo } from "../../../../lib/config/personal";
+import { personalInfo } from "@/lib/config/personal";
 
 export function ProfileImage() {
   return (

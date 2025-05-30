@@ -3,14 +3,31 @@ import { Project } from "../lib/types";
 import { FirebaseServices } from "../services/firebase";
 
 const useFetch = () => {
-  const [isLoadiong, setIsLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string>("");
-  const [projectsData, setProjectsData] = useState<Project[]>([]);
+  const [state, setState] = useState<{
+    isLoading: boolean;
+    error: string;
+    projectsData: Project[];
+  }>({
+    isLoading: false,
+    error: "",
+    projectsData: [],
+  });
+
+  const setIsLoading = (isLoading: boolean) => {
+    setState((prev) => ({ ...prev, isLoading }));
+  };
+
+  const setProjectsData = (projectsData: Project[]) => {
+    setState((prev) => ({ ...prev, projectsData }));
+  };
+
+  const setError = (error: string) => {
+    setState((prev) => ({ ...prev, error }));
+  };
 
   const getAllProjects = useCallback(async () => {
-    setError("");
     setIsLoading(true);
-
+    setError("");
     try {
       const data = await FirebaseServices.getAllProjects();
       if (data) {
@@ -18,17 +35,19 @@ const useFetch = () => {
       } else {
         setProjectsData([]);
       }
-    } catch (e) {
+    } catch (e: any) {
+      setError(e?.message || "Error fetching projects");
+      setProjectsData([]);
     } finally {
       setIsLoading(false);
     }
   }, []);
 
   return {
-    isLoadiong,
-    error,
-    projectsData,
-    getAllProjects
+    isLoading: state.isLoading,
+    error: state.error,
+    projectsData: state.projectsData,
+    getAllProjects,
   };
 };
 

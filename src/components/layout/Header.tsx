@@ -1,11 +1,11 @@
 
 
 import { motion } from "framer-motion"
-import { Button } from "../ui/button"
-import { Moon, Sun } from "lucide-react"
-import { useTheme } from "../../contexts/ThemeContext"
-import { LanguageSelector } from "./LanguageSelector"
-import { personalInfo } from "../../lib/config/personal"
+import { Button } from "@/components/ui/button";
+import { Moon, Sun } from "lucide-react";
+import { useTheme } from "@/contexts/ThemeContext";
+import { LanguageSelector } from "./LanguageSelector";
+import { personalInfo } from "@/lib/config/personal";
 
 export function Header() {
   const { isDark, toggleTheme } = useTheme()

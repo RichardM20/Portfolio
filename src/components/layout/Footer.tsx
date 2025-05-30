@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Linkedin, Github, Mail, Globe } from "lucide-react";
-import { useLanguage } from "../../contexts/LanguageContext";
-import { personalInfo, socialLinks } from "../../lib/config/personal";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { personalInfo, socialLinks } from "@/lib/config/personal";
 
 export function Footer() {
   const { t } = useLanguage();

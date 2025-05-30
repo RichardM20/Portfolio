@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect, type ReactNode } from "react"
-import type { ThemeConfig } from "../lib/types"
+import type { ThemeConfig } from "@/lib/types";
 
 interface ThemeContextType extends ThemeConfig {
   toggleTheme: () => void

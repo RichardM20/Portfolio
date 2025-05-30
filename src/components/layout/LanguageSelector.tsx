@@ -1,7 +1,7 @@
 
 
-import { Button } from "../ui/button"
-import { useLanguage } from "../../contexts/LanguageContext"
+import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { motion } from "framer-motion"
 
 export function LanguageSelector() {

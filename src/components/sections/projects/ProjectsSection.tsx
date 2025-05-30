@@ -18,16 +18,15 @@ import { containerVariants, itemVariants } from "@/lib/constants/animations";
 import { useEffect, useState } from "react";
 import { useFetch } from "@/hooks/useFetch";
 import { ProjectCard } from "./components/ProjectCard";
+import { ProjectDetail } from "./components/ProjectDetail";
+import type { Project } from "@/lib/types";
 
 export function ProjectsSection() {
   const { t, language } = useLanguage();
-  const {
-    error,
-    getAllProjects,
-    isLoadiong: isLoading,
-    projectsData,
-  } = useFetch();
+  const { error, getAllProjects, isLoading, projectsData } = useFetch();
   const [showPersonal, setShowPersonal] = useState(false);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [isDetailOpen, setIsDetailOpen] = useState(false);
 
   useEffect(() => {
     getAllProjects();
@@ -35,6 +34,19 @@ export function ProjectsSection() {
 
   const handleRetry = () => {
     getAllProjects();
+  };
+
+  const handleCardClick = (project: Project) => {
+    if (!project.details) return;
+    setSelectedProject(project);
+    setIsDetailOpen(true);
+  };
+
+  const handleCloseDetail = () => {
+    setIsDetailOpen(false);
+    setTimeout(() => {
+      setSelectedProject(null);
+    }, 300);
   };
 
   const sortedProjects = [...projectsData].sort(
@@ -131,7 +143,6 @@ export function ProjectsSection() {
           </motion.div>
         )}
 
-        {/* Título de la sección actual */}
         {!isLoading && !error && (
           <motion.div
             className="text-center mb-8"
@@ -168,7 +179,6 @@ export function ProjectsSection() {
               {t("projects.loading") || "Cargando proyectos..."}
             </p>
 
-
             <div className="grid md:grid-cols-2 gap-8 mt-12 w-full max-w-6xl">
               {Array.from({ length: 4 }).map((_, index) => (
                 <motion.div
@@ -198,7 +208,6 @@ export function ProjectsSection() {
           </motion.div>
         )}
 
-
         {!isLoading && !error && (
           <motion.div
             className="grid md:grid-cols-2 gap-8"
@@ -213,12 +222,15 @@ export function ProjectsSection() {
                 variants={itemVariants}
                 custom={index}
               >
-                <ProjectCard project={project} language={language} />
+                <ProjectCard
+                  project={project}
+                  language={language}
+                  onCardClick={handleCardClick}
+                />
               </motion.div>
             ))}
           </motion.div>
         )}
-
 
         {!isLoading && !error && currentProjects.length === 0 && (
           <motion.div
@@ -242,6 +254,13 @@ export function ProjectsSection() {
           </motion.div>
         )}
       </div>
+
+      {/* Project Detail Modal */}
+      <ProjectDetail
+        project={selectedProject}
+        isOpen={isDetailOpen}
+        onClose={handleCloseDetail}
+      />
     </section>
   );
 }

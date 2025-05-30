@@ -16,33 +16,51 @@ import type { Project } from "@/lib/types";
 interface ProjectCardProps {
   project: Project;
   language: string;
+  onCardClick?: (project: Project) => void;
 }
 
-export function ProjectCard({ project, language }: ProjectCardProps) {
+export function ProjectCard({
+  project,
+  language,
+  onCardClick,
+}: ProjectCardProps) {
   const { t } = useLanguage();
+
+  const handleCardClick = () => {
+    if (onCardClick) {
+      onCardClick(project);
+    }
+  };
+
+  const handleLinkClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+  };
 
   return (
     <motion.div whileHover={{ y: -10 }} transition={{ duration: 0.3 }}>
-      <Card className="group hover:shadow-2xl transition-all duration-500 overflow-hidden bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 relative">
+      <Card
+        className="group hover:shadow-2xl transition-all duration-500 overflow-hidden bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 relative cursor-pointer"
+        onClick={handleCardClick}
+      >
         <div className="relative overflow-hidden">
-            <motion.div
+          <motion.div
             whileHover={{ scale: 1.1 }}
             transition={{ duration: 0.5 }}
-            >
+          >
             <img
               src={
-              project.image
-                ? project.image.startsWith('data:')
-                ? project.image
-                : `data:image/jpeg;base64,${project.image}`
-                : "/placeholder.svg"
+                project.image
+                  ? project.image.startsWith("data:")
+                    ? project.image
+                    : `data:image/jpeg;base64,${project.image}`
+                  : "/placeholder.svg"
               }
               alt={project.title}
               width={400}
               height={200}
               className="w-full h-48 object-cover"
             />
-            </motion.div>
+          </motion.div>
 
           <motion.div
             className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4"
@@ -54,7 +72,7 @@ export function ProjectCard({ project, language }: ProjectCardProps) {
               whileHover={{ scale: 1 }}
               transition={{ delay: 0.1 }}
             >
-              <Button size="sm" asChild>
+              <Button size="sm" asChild onClick={handleLinkClick}>
                 <a
                   href={project.github}
                   target="_blank"
@@ -72,7 +90,12 @@ export function ProjectCard({ project, language }: ProjectCardProps) {
               whileHover={{ scale: 1 }}
               transition={{ delay: 0.2 }}
             >
-              <Button size="sm" variant="secondary" asChild>
+              <Button
+                size="sm"
+                variant="secondary"
+                asChild
+                onClick={handleLinkClick}
+              >
                 <a
                   href={project.demo}
                   target="_blank"
@@ -154,6 +177,7 @@ export function ProjectCard({ project, language }: ProjectCardProps) {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               aria-label="View source code"
+              onClick={handleLinkClick}
             >
               <Github className="h-4 w-4 text-gray-600 dark:text-gray-300" />
             </motion.a>
@@ -167,6 +191,7 @@ export function ProjectCard({ project, language }: ProjectCardProps) {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               aria-label="View live demo"
+              onClick={handleLinkClick}
             >
               <ExternalLink className="h-4 w-4 text-gray-600 dark:text-gray-300" />
             </motion.a>

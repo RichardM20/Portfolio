@@ -42,6 +42,7 @@ export class FirebaseServices {
       featured: data[key].featured || false,
       to: data[key].to,
       date: data[key].date,
+      details: data[key].details,
     }));
 
     return projectsArray;

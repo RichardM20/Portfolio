@@ -1,7 +1,7 @@
 
 
 import { motion } from "framer-motion"
-import { useScrollProgress } from "../../hooks/useScrollProgress"
+import { useScrollProgress } from "@/hooks/useScrollProgress";
 
 export function ProgressBar() {
   const { scaleX } = useScrollProgress()

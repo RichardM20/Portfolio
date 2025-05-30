@@ -23,16 +23,17 @@ export interface ProjectDescription {
 }
 
 export interface Project {
-  id: string
-  title: string
-  description: ProjectDescription
-  tech: string[]
-  image: string
-  github: string
-  demo: string
-  featured?: boolean
-  to: string,
-  date:string
+  id: string;
+  title: string;
+  description: ProjectDescription;
+  tech: string[];
+  image: string;
+  github: string;
+  demo: string;
+  featured?: boolean;
+  to: string;
+  date: string;
+  details: ProjectDescription[];
 }
 
 export interface Skill {

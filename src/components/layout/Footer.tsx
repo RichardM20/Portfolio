@@ -1,19 +1,37 @@
-
-
-import { motion } from "framer-motion"
-import { Heart, Linkedin, Github, Mail, Globe } from "lucide-react"
-import { useLanguage } from "../../contexts/LanguageContext"
-import { personalInfo, socialLinks } from "../../lib/config/personal"
+import { motion } from "framer-motion";
+import { Linkedin, Github, Mail, Globe } from "lucide-react";
+import { useLanguage } from "../../contexts/LanguageContext";
+import { personalInfo, socialLinks } from "../../lib/config/personal";
 
 export function Footer() {
-  const { t } = useLanguage()
+  const { t } = useLanguage();
 
   const socialIcons = [
-    { href: socialLinks.linkedin, icon: Linkedin, color: "hover:text-blue-600", label: "LinkedIn" },
-    { href: socialLinks.github, icon: Github, color: "hover:text-gray-900 dark:hover:text-white", label: "GitHub" },
-    { href: `mailto:${personalInfo.email}`, icon: Mail, color: "hover:text-blue-600", label: "Email" },
-    { href: socialLinks.portfolio, icon: Globe, color: "hover:text-green-600", label: "Portfolio" },
-  ]
+    {
+      href: socialLinks.linkedin,
+      icon: Linkedin,
+      color: "hover:text-blue-600",
+      label: "LinkedIn",
+    },
+    {
+      href: socialLinks.github,
+      icon: Github,
+      color: "hover:text-gray-900 dark:hover:text-white",
+      label: "GitHub",
+    },
+    {
+      href: `mailto:${personalInfo.email}`,
+      icon: Mail,
+      color: "hover:text-blue-600",
+      label: "Email",
+    },
+    {
+      href: socialLinks.portfolio,
+      icon: Globe,
+      color: "hover:text-green-600",
+      label: "Portfolio",
+    },
+  ];
 
   return (
     <footer className="py-12 border-t bg-white dark:bg-gray-900">
@@ -49,5 +67,5 @@ export function Footer() {
         </motion.div>
       </div>
     </footer>
-  )
+  );
 }

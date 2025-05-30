@@ -1,13 +1,18 @@
-
-
-import { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import { Code, Smartphone, Server, Database, ChevronDown, ChevronUp } from "lucide-react"
-import { useLanguage } from "@/contexts/LanguageContext"
-import { skills } from "@/lib/config/personal"
-import { containerVariants, itemVariants } from "@/lib/constants/animations"
-import { SkillCard } from "./components/SkillCard"
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import {
+  Code,
+  Smartphone,
+  Server,
+  Database,
+  ChevronDown,
+  ChevronUp,
+} from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { skills } from "@/lib/config/personal";
+import { containerVariants, itemVariants } from "@/lib/constants/animations";
+import { SkillCard } from "./components/SkillCard";
 
 const SKILL_ICONS = {
   mobile: Smartphone,
@@ -16,16 +21,18 @@ const SKILL_ICONS = {
   database: Database,
   language: Code,
   tools: Code,
-} as const
+} as const;
 
-const INITIAL_SKILLS_COUNT = 8
+const INITIAL_SKILLS_COUNT = 8;
 
 export function SkillsSection() {
-  const { t } = useLanguage()
-  const [showAllSkills, setShowAllSkills] = useState(false)
+  const { t } = useLanguage();
+  const [showAllSkills, setShowAllSkills] = useState(false);
 
-  const displayedSkills = showAllSkills ? skills : skills.slice(0, INITIAL_SKILLS_COUNT)
-  const hasMoreSkills = skills.length > INITIAL_SKILLS_COUNT
+  const displayedSkills = showAllSkills
+    ? skills
+    : skills.slice(0, INITIAL_SKILLS_COUNT);
+  const hasMoreSkills = skills.length > INITIAL_SKILLS_COUNT;
 
   return (
     <section className="py-20 bg-white dark:bg-gray-800 relative overflow-hidden">
@@ -38,7 +45,9 @@ export function SkillsSection() {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl font-bold mb-4">{t("skills.title")}</h2>
-          <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">{t("skills.subtitle")}</p>
+          <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            {t("skills.subtitle")}
+          </p>
         </motion.div>
 
         <motion.div
@@ -50,7 +59,9 @@ export function SkillsSection() {
         >
           <AnimatePresence>
             {displayedSkills.map((skill, index) => {
-              const IconComponent = SKILL_ICONS[skill.category.id as keyof typeof SKILL_ICONS] || Code
+              const IconComponent =
+                SKILL_ICONS[skill.category.id as keyof typeof SKILL_ICONS] ||
+                Code;
 
               return (
                 <motion.div
@@ -68,7 +79,7 @@ export function SkillsSection() {
                 >
                   <SkillCard skill={skill} icon={IconComponent} />
                 </motion.div>
-              )
+              );
             })}
           </AnimatePresence>
         </motion.div>
@@ -95,8 +106,9 @@ export function SkillsSection() {
                   </>
                 ) : (
                   <>
-                    <ChevronDown/>
-                    {t("skills.showMore")} ({skills.length - INITIAL_SKILLS_COUNT} {t("skills.more")})
+                    <ChevronDown />
+                    {t("skills.showMore")} (
+                    {skills.length - INITIAL_SKILLS_COUNT} {t("skills.more")})
                   </>
                 )}
               </Button>
@@ -105,5 +117,5 @@ export function SkillsSection() {
         )}
       </div>
     </section>
-  )
+  );
 }

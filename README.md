@@ -1,110 +1,180 @@
-# Portfolio web
+# Professional Portfolio - React + Vite
 
-This project is a multi-language React application built with Vite, using TypeScript and SASS. It integrates Firebase for project data retrieval and follows linter rules for code quality.
+Un portafolio profesional modular y escalable desarrollado con React, Vite, TypeScript y Tailwind CSS.
 
-> It has two layouts, one with two themes and another with a fixed theme.
-> Each one is in a corresponding branch: `main` `dev-nd`
- 
-## Features
+## 🚀 Características
 
-- Built with Vite for fast development and optimized production builds
-- React with TypeScript for robust development
-- SASS for enhanced styling capabilities
-- Firebase integration for project data management
-- Multi-language support
-- Linter rules for consistent code style
+- ⚡ **Vite** - Build tool ultra rápido
+- ⚛️ **React 18** - Última versión con hooks modernos
+- 🎨 **Tailwind CSS** - Styling utility-first
+- 🎭 **Framer Motion** - Animaciones fluidas
+- 🌍 **Multi-idioma** - Español e Inglés
+- 🌙 **Modo oscuro** - Toggle automático
+- 📱 **Responsive** - Diseño mobile-first
+- 🏗️ **Arquitectura modular** - Código escalable y mantenible
+- 🔧 **TypeScript** - Tipado estricto
 
-## Prerequisites
+## 📁 Estructura del Proyecto
 
-Before you begin, ensure you have met the following requirements:
+\`\`\`
+src/
+├── components/
+│   ├── common/          # Componentes reutilizables
+│   ├── layout/          # Componentes de layout
+│   ├── sections/        # Secciones del portfolio
+│   └── ui/              # Componentes base de UI
+├── contexts/            # Context providers
+├── hooks/               # Custom hooks
+├── lib/
+│   ├── config/          # Configuración personal
+│   ├── constants/       # Constantes y configuraciones
+│   ├── types/           # Definiciones TypeScript
+│   └── utils/           # Utilidades y helpers
+└── styles/              # Estilos globales
+\`\`\`
 
-- Node.js (version 20 or higher)
-- npm or yarn
-- A Firebase project set up
+## 🛠️ Instalación
 
-## Installation
+1. **Clonar el repositorio**
+\`\`\`bash
+git clone <tu-repo>
+cd professional-portfolio
+\`\`\`
 
-1. Clone the repository:
+2. **Instalar dependencias**
+\`\`\`bash
+npm install
+\`\`\`
 
-   ```
-   git clone https://github.com/RichardM20/Portfolio
-   ```
+3. **Configurar información personal**
+Edita `src/lib/config/personal.ts` con tu información:
 
-2. Navigate to the project directory:
+\`\`\`typescript
+export const personalInfo = {
+  name: "Tu Nombre",
+  email: "tu@email.com",
+  // ... resto de configuración
+}
+\`\`\`
 
-   ```
-   cd Portfolio
-   ```
-
-3. Install dependencies:
-
-   ```
-   npm install
-   ```
-   or
-   ```
-   yarn install
-   ```
-
-4. Create a `.env.local` file in the root directory and add your Firebase configuration:
-
-   ```
-   VITE_FIREBASE_API_KEY=your_api_key
-   VITE_FIREBASE_AUTH_DOMAIN=your_auth_domain
-   VITE_FIREBASE_PROJECT_ID=your_project_id
-   VITE_FIREBASE_STORAGE_BUCKET=your_storage_bucket
-   VITE_FIREBASE_MESSAGING_SENDER_ID=your_messaging_sender_id
-   VITE_FIREBASE_APP_ID=your_app_id
-   ```
-
-## Usage
-
-To start the development server:
-
-```
+4. **Ejecutar en desarrollo**
+\`\`\`bash
 npm run dev
-```
-or
-```
-yarn dev
-```
+\`\`\`
 
-To build for production:
-
-```
+5. **Build para producción**
+\`\`\`bash
 npm run build
-```
-or
-```
-yarn build
-```
+\`\`\`
 
-## Linting
+## ⚙️ Configuración
 
-This project uses ESLint for code linting. To run the linter:
+### Información Personal
+Modifica `src/lib/config/personal.ts`:
+- Datos personales
+- Enlaces de redes sociales
+- Proyectos
+- Habilidades técnicas
+- Estadísticas
 
-```
-npm run lint
-```
-or
-```
-yarn lint
-```
+### Imágenes
+- Coloca tu foto de perfil en `public/profile.jpg`
+- Coloca tu CV en `public/cv.pdf`
+- Actualiza las URLs de imágenes de proyectos
 
-## Multi-language Support
+### Traducciones
+Agrega o modifica traducciones en `src/lib/translations.ts`
 
-This project supports multiple languages. Language files are located in the `src/locales` directory. To add a new language, create a new JSON file with the appropriate language code (e.g., `es.json` for Spanish).
+## 🎨 Personalización
 
-## Firebase Integration
+### Colores
+Modifica `tailwind.config.js` para cambiar la paleta de colores.
 
-This project uses Firebase for retrieving project data. Ensure you have set up your Firebase project and added the configuration to the `.env` file as described in the Installation section.
+### Animaciones
+Ajusta las configuraciones en `src/lib/constants/animations.ts`.
 
-## Contributing
+### Componentes
+Todos los componentes son modulares y fáciles de personalizar.
 
-Contributions to this project are welcome. Please ensure you follow the established code style and linting rules.
+## 📦 Scripts Disponibles
 
-1. Fork the project
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a pull request
+- `npm run dev` - Servidor de desarrollo
+- `npm run build` - Build de producción
+- `npm run preview` - Preview del build
+- `npm run lint` - Linter ESLint
+- `npm run type-check` - Verificación de tipos
+
+## 🏗️ Arquitectura
+
+### Principios Aplicados
+- **Separación de responsabilidades**
+- **DRY (Don't Repeat Yourself)**
+- **Single Responsibility Principle**
+- **Composición sobre herencia**
+- **Tipado estricto con TypeScript**
+
+### Patrones de Diseño
+- **Custom Hooks** para lógica reutilizable
+- **Context API** para estado global
+- **Compound Components** para UI compleja
+- **Render Props** para compartir lógica
+
+## 🚀 Deployment
+
+### Vercel (Recomendado)
+\`\`\`bash
+npm run build
+# Subir carpeta dist/ a Vercel
+\`\`\`
+
+### Netlify
+\`\`\`bash
+npm run build
+# Subir carpeta dist/ a Netlify
+\`\`\`
+
+### GitHub Pages
+\`\`\`bash
+npm run build
+# Configurar GitHub Pages para servir desde dist/
+\`\`\`
+
+## 🤝 Contribución
+
+1. Fork el proyecto
+2. Crea una rama para tu feature
+3. Commit tus cambios
+4. Push a la rama
+5. Abre un Pull Request
+
+## 📄 Licencia
+
+MIT License - ve el archivo [LICENSE](LICENSE) para más detalles.
+\`\`\`
+
+¡Perfecto! 🎉 Ahora tienes un portafolio completamente convertido a **React + Vite** con todas las características:
+
+## ✨ **Ventajas de React + Vite:**
+
+- ⚡ **Desarrollo ultra rápido** - HMR instantáneo
+- 📦 **Bundle optimizado** - Tree shaking automático
+- 🔧 **Configuración mínima** - Zero config por defecto
+- 🚀 **Build rápido** - Rollup para producción
+- 💡 **Mejor DX** - Mejor experiencia de desarrollo
+
+## 🏗️ **Arquitectura Mantenida:**
+
+- ✅ **Misma estructura modular**
+- ✅ **Mismos principios de diseño**
+- ✅ **TypeScript estricto**
+- ✅ **Custom hooks reutilizables**
+- ✅ **Componentes escalables**
+
+## 🔧 **Para empezar:**
+
+1. **Instalar dependencias**: `npm install`
+2. **Configurar**: Editar `src/lib/config/personal.ts`
+3. **Desarrollar**: `npm run dev`
+4. **Build**: `npm run build`
+
+¡El proyecto está listo para usar con React + Vite manteniendo toda la funcionalidad y arquitectura profesional! 🚀

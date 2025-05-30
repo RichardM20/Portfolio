@@ -1,19 +1,18 @@
-import React, { Suspense } from 'react';
+import React, { Suspense } from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App.tsx";
+import "./index.css";
+import { FirebaseServices } from "./services/firebase.ts";
 
-import ReactDOM from 'react-dom/client';
-
-import App from './pages/app';
-import LoadingScreen from './pages/Loading/Loading';
-import { FirebaseServices } from './shared/services/firebase/firebase';
-import './shared/translations/i18n';
-
-const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
+const root = ReactDOM.createRoot(
+  document.getElementById("root") as HTMLElement
+);
 
 FirebaseServices.initializateServices();
 
 root.render(
   <React.StrictMode>
-    <Suspense fallback={<LoadingScreen />}>
+    <Suspense fallback={<>Loading...</>}>
       <App />
     </Suspense>
   </React.StrictMode>

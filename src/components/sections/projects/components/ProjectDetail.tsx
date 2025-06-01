@@ -1,4 +1,4 @@
-import { motion, AnimatePresence } from "framer-motion";
+import { Badge } from "@/components/ui/badge";
 import {
   Card,
   CardContent,
@@ -6,11 +6,10 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Github, X, Calendar, Building2, User } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import type { Project } from "@/lib/types";
+import { AnimatePresence, motion } from "framer-motion";
+import { Building2, Calendar, User, X } from "lucide-react";
 
 interface ProjectDetailProps {
   project: Project | null;
@@ -209,30 +208,6 @@ export function ProjectDetail({
                         </div>
                       </motion.div>
                     )}
-                    <motion.div
-                      className="flex flex-col sm:flex-row gap-4 pt-6"
-                      variants={itemVariants}
-                    >
-                      {project.github && (
-                        <motion.div
-                          whileHover={{ scale: 1.02 }}
-                          whileTap={{ scale: 0.98 }}
-                          className="flex-1"
-                        >
-                          <Button asChild className="w-full">
-                            <a
-                              href={project.github}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              aria-label="View source code"
-                            >
-                              <Github className="h-4 w-4 mr-2" />
-                              {t("projects.viewCode") || "Ver código"}
-                            </a>
-                          </Button>
-                        </motion.div>
-                      )}
-                    </motion.div>
                   </CardContent>
                 </motion.div>
               </div>

@@ -22,7 +22,7 @@ export function ProjectDetail({
   isOpen,
   onClose,
 }: ProjectDetailProps) {
-  const { t, language } = useLanguage();
+  const { language } = useLanguage();
 
   if (!project) return null;
 

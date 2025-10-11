@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { Project } from "../lib/types";
 import { FirebaseServices } from "../services/firebase";
 
@@ -13,17 +13,17 @@ const useFetch = () => {
     projectsData: [],
   });
 
-  const setIsLoading = (isLoading: boolean) => {
+  const setIsLoading = useCallback((isLoading: boolean) => {
     setState((prev) => ({ ...prev, isLoading }));
-  };
+  }, []);
 
-  const setProjectsData = (projectsData: Project[]) => {
+  const setProjectsData = useCallback((projectsData: Project[]) => {
     setState((prev) => ({ ...prev, projectsData }));
-  };
+  }, []);
 
-  const setError = (error: string) => {
+  const setError = useCallback((error: string) => {
     setState((prev) => ({ ...prev, error }));
-  };
+  }, []);
 
   const getAllProjects = useCallback(async () => {
     setIsLoading(true);
@@ -43,12 +43,12 @@ const useFetch = () => {
     }
   }, []);
 
-  return {
+  return useMemo(() => ({
     isLoading: state.isLoading,
     error: state.error,
     projectsData: state.projectsData,
     getAllProjects,
-  };
+  }), [state.isLoading, state.error, state.projectsData, getAllProjects]);
 };
 
-export {useFetch};
+export { useFetch };

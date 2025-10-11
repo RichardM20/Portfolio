@@ -1,14 +1,18 @@
-
-
-import { motion } from "framer-motion"
-import { Card, CardContent } from "@/components/ui/card"
-import { User, Calendar, MapPin } from "lucide-react"
-import { useLanguage } from "@/contexts/LanguageContext"
-import { personalInfo } from "@/lib/config/personal"
-import { containerVariants, itemVariants } from "@/lib/constants/animations"
+import { Card, CardContent } from "@/components/ui/card";
+import { Skeleton } from "@/components/ui/skeleton";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { useProfile } from "@/hooks/useProfile";
+import { containerVariants, itemVariants } from "@/lib/constants/animations";
+import { motion } from "framer-motion";
+import { Calendar, MapPin, User } from "lucide-react";
 
 export function AboutSection() {
-  const { t } = useLanguage()
+  const { t } = useLanguage();
+  const { personalInfo, loading } = useProfile();
+
+  if (!personalInfo && !loading) {
+    return null;
+  }
 
   const aboutItems = [
     {
@@ -17,15 +21,23 @@ export function AboutSection() {
     },
     {
       icon: Calendar,
-      label: `${personalInfo.experience} ${t("about.experience")}`,
+      label: loading ? (
+        <Skeleton className="inline-block h-4 w-20" />
+      ) : (
+        `${personalInfo?.experience || 4} ${t("about.experience")}`
+      ),
     },
     {
       icon: MapPin,
       label: t("about.location"),
     },
-  ]
+  ];
 
-  const descriptions = [t("about.description1"), t("about.description2"), t("about.description3")]
+  const descriptions = [
+    t("about.description1"),
+    t("about.description2"),
+    t("about.description3"),
+  ];
 
   return (
     <section className="py-20 bg-white dark:bg-gray-800">
@@ -39,7 +51,9 @@ export function AboutSection() {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl font-bold mb-4">{t("about.title")}</h2>
-            <p className="text-gray-600 dark:text-gray-400">{t("about.subtitle")}</p>
+            <p className="text-gray-600 dark:text-gray-400">
+              {t("about.subtitle")}
+            </p>
           </motion.div>
 
           <motion.div
@@ -87,5 +101,5 @@ export function AboutSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

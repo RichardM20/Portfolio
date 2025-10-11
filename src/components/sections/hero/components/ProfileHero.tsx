@@ -1,8 +1,21 @@
+import { Skeleton } from "@/components/ui/skeleton";
+import { useProfile } from "@/hooks/useProfile";
 import { motion } from "framer-motion";
 import { Code } from "lucide-react";
-import { personalInfo } from "@/lib/config/personal";
 
 export function ProfileImage() {
+  const { personalInfo, loading } = useProfile();
+
+  if (!personalInfo && !loading) {
+    return (
+      <div className="flex-1 flex justify-center">
+        <div className="w-80 h-80 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
+          <span className="text-gray-500">Imagen no disponible</span>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <motion.div
       className="flex-1 flex justify-center"
@@ -19,11 +32,15 @@ export function ProfileImage() {
           className="w-80 h-80 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 p-1"
           animate={{ rotate: 360 }}
         >
-          <img
-            src={personalInfo.profileImage || "/placeholder.svg"}
-            alt={`${personalInfo.name} profile`}
-            className="rounded-full object-cover w-full h-full"
-          />
+          {loading ? (
+            <Skeleton className="w-full h-full rounded-full" />
+          ) : (
+            <img
+              src={personalInfo?.profileImage || "/placeholder.svg"}
+              alt={`${personalInfo?.name || "richard morales"} profile`}
+              className="rounded-full object-cover w-full h-full"
+            />
+          )}
         </motion.div>
 
         <motion.div

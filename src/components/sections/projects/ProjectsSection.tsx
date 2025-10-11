@@ -1,25 +1,15 @@
-import { motion } from "framer-motion";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-} from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import {
-  Building2,
-  User,
-  AlertCircle,
-  Loader2,
-  RefreshCw,
-} from "lucide-react";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { motion } from "framer-motion";
+import { AlertCircle, Building2, Loader2, RefreshCw, User } from "lucide-react";
 
-import { containerVariants, itemVariants } from "@/lib/constants/animations";
-import { useEffect, useState } from "react";
 import { useFetch } from "@/hooks/useFetch";
+import { containerVariants, itemVariants } from "@/lib/constants/animations";
+import type { Project } from "@/lib/types";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { ProjectCard } from "./components/ProjectCard";
 import { ProjectDetail } from "./components/ProjectDetail";
-import type { Project } from "@/lib/types";
 
 export function ProjectsSection() {
   const { t, language } = useLanguage();
@@ -32,45 +22,64 @@ export function ProjectsSection() {
     getAllProjects();
   }, []);
 
-  const handleRetry = () => {
+  const handleRetry = useCallback(() => {
     getAllProjects();
-  };
+  }, [getAllProjects]);
 
-  const handleCardClick = (project: Project) => {
+  const handleCardClick = useCallback((project: Project) => {
     if (!project.details) return;
     setSelectedProject(project);
     setIsDetailOpen(true);
-  };
+  }, []);
 
-  const handleCloseDetail = () => {
+  const handleCloseDetail = useCallback(() => {
     setIsDetailOpen(false);
     setTimeout(() => {
       setSelectedProject(null);
     }, 300);
-  };
+  }, []);
 
-  const sortedProjects = [...projectsData].sort(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-  );
-
-  const businessProjects = sortedProjects.filter(
-    (project) => project.to !== "Personal"
-  );
-  const personalProjects = sortedProjects.filter(
-    (project) => project.to === "Personal"
+  const sortedProjects = useMemo(
+    () =>
+      [...projectsData].sort(
+        (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+      ),
+    [projectsData]
   );
 
-  const featuredBusinessProjects = businessProjects.filter(
-    (project) => project.featured
-  );
-  const featuredPersonalProjects = personalProjects.filter(
-    (project) => project.featured
+  const businessProjects = useMemo(
+    () => sortedProjects.filter((project) => project.to !== "Personal"),
+    [sortedProjects]
   );
 
-  const currentProjects = showPersonal
-    ? featuredPersonalProjects
-    : featuredBusinessProjects;
-  const hasPersonalProjects = featuredPersonalProjects.length > 0;
+  const personalProjects = useMemo(
+    () =>
+      sortedProjects.filter(
+        (project) =>
+          project.to === "Personal" && project.title !== "Portafolio Web"
+      ),
+    [sortedProjects]
+  );
+
+  const featuredBusinessProjects = useMemo(
+    () => businessProjects.filter((project) => project.featured),
+    [businessProjects]
+  );
+
+  const featuredPersonalProjects = useMemo(
+    () => personalProjects.filter((project) => project.featured),
+    [personalProjects]
+  );
+
+  const currentProjects = useMemo(
+    () => (showPersonal ? featuredPersonalProjects : featuredBusinessProjects),
+    [showPersonal, featuredPersonalProjects, featuredBusinessProjects]
+  );
+
+  const hasPersonalProjects = useMemo(
+    () => featuredPersonalProjects.length > 0,
+    [featuredPersonalProjects]
+  );
 
   return (
     <section className="py-20 relative">
@@ -255,7 +264,6 @@ export function ProjectsSection() {
         )}
       </div>
 
-      {/* Project Detail Modal */}
       <ProjectDetail
         project={selectedProject}
         isOpen={isDetailOpen}

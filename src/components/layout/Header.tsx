@@ -1,14 +1,14 @@
-
-
-import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button";
-import { Moon, Sun } from "lucide-react";
+import { Skeleton } from "@/components/ui/skeleton";
 import { useTheme } from "@/contexts/ThemeContext";
+import { useProfile } from "@/hooks/useProfile";
+import { motion } from "framer-motion";
+import { Moon, Sun } from "lucide-react";
 import { LanguageSelector } from "./LanguageSelector";
-import { personalInfo } from "@/lib/config/personal";
 
 export function Header() {
-  const { isDark, toggleTheme } = useTheme()
+  const { isDark, toggleTheme } = useTheme();
+  const { personalInfo, loading } = useProfile();
 
   return (
     <motion.header
@@ -22,7 +22,11 @@ export function Header() {
           className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
           whileHover={{ scale: 1.05 }}
         >
-          {personalInfo.name}
+          {loading ? (
+            <Skeleton className="h-8 w-48" />
+          ) : (
+            personalInfo?.name || "Richard Morales"
+          )}
         </motion.h1>
 
         <div className="flex items-center gap-4">
@@ -35,11 +39,15 @@ export function Header() {
               className="rounded-full"
               aria-label="Toggle theme"
             >
-              {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+              {isDark ? (
+                <Sun className="h-5 w-5" />
+              ) : (
+                <Moon className="h-5 w-5" />
+              )}
             </Button>
           </motion.div>
         </div>
       </div>
     </motion.header>
-  )
+  );
 }

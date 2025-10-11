@@ -7,6 +7,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useScrollLock } from "@/hooks/useScrollLock";
 import type { Project } from "@/lib/types";
 import { AnimatePresence, motion } from "framer-motion";
 import { Building2, Calendar, User, X } from "lucide-react";
@@ -23,6 +24,9 @@ export function ProjectDetail({
   onClose,
 }: ProjectDetailProps) {
   const { language } = useLanguage();
+  
+  // bloquear el scroll cuando el modal está abierto
+  useScrollLock(isOpen);
 
   if (!project) return null;
 

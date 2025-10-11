@@ -1,17 +1,10 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { Project } from "../lib/types"; // Asegúrate de que la ruta sea correcta
+import { env } from "../config/env";
+import { PersonalInfo, Project, SocialLinks, Stats } from "../lib/types";
 
 // Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyBMbC2s8Od_rixh0POAZOTIv5VvIj5k1JU",
-  authDomain: "react-portfolioweb.firebaseapp.com",
-  databaseURL: "https://react-portfolioweb-default-rtdb.firebaseio.com",
-  projectId: "react-portfolioweb",
-  storageBucket: "react-portfolioweb.firebasestorage.app",
-  messagingSenderId: "466783937622",
-  appId: "1:466783937622:web:78a03f1c3bd03bc9ffc7f7",
-};
+const firebaseConfig = env.firebase;
 
 const app = initializeApp(firebaseConfig);
 
@@ -46,5 +39,66 @@ export class FirebaseServices {
     }));
 
     return projectsArray;
+  };
+
+  static getProfile = async (): Promise<PersonalInfo> => {
+    const response = await fetch(
+      "https://react-portfolioweb-default-rtdb.firebaseio.com/profile.json"
+    );
+
+    if (!response.ok) {
+      throw new Error("Error al obtener los datos del perfil");
+    }
+
+    const data = await response.json();
+
+    return {
+      name: data.name,
+      title: data.stats.title,
+      email: data.email,
+      phone: data.phone.toString(),
+      location: data.location,
+      experience: data.experience,
+      profileImage: data.photo,
+      cvUrl: data.cv_es,
+      cvEnUrl: data.cv,
+    };
+  };
+
+  static getSocialLinks = async (): Promise<SocialLinks> => {
+    const response = await fetch(
+      "https://react-portfolioweb-default-rtdb.firebaseio.com/profile/social_links.json"
+    );
+
+    if (!response.ok) {
+      throw new Error("Error al obtener los enlaces sociales");
+    }
+
+    const data = await response.json();
+
+    return {
+      linkedin: data.linkedin,
+      github: data.github,
+      whatsapp: data.whatsapp,
+      portfolio: data.portfolio,
+    };
+  };
+
+  static getStats = async (): Promise<Stats> => {
+    const response = await fetch(
+      "https://react-portfolioweb-default-rtdb.firebaseio.com/profile/stats.json"
+    );
+
+    if (!response.ok) {
+      throw new Error("Error al obtener las estadísticas");
+    }
+
+    const data = await response.json();
+
+    return {
+      experience: data.experience,
+      projects: data.projects,
+      technologies: data.technologies,
+    };
   };
 }

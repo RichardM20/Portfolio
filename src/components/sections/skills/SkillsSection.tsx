@@ -1,17 +1,17 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import {
-  Code,
-  Smartphone,
-  Server,
-  Database,
-  ChevronDown,
-  ChevronUp,
-} from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { skills } from "@/lib/config/personal";
-import { containerVariants, itemVariants } from "@/lib/constants/animations";
+import { containerVariants } from "@/lib/constants/animations";
+import { AnimatePresence, motion } from "framer-motion";
+import {
+  ChevronDown,
+  ChevronUp,
+  Code,
+  Database,
+  Server,
+  Smartphone,
+} from "lucide-react";
+import { useMemo, useState } from "react";
 import { SkillCard } from "./components/SkillCard";
 
 const SKILL_ICONS = {
@@ -29,10 +29,12 @@ export function SkillsSection() {
   const { t } = useLanguage();
   const [showAllSkills, setShowAllSkills] = useState(false);
 
-  const displayedSkills = showAllSkills
-    ? skills
-    : skills.slice(0, INITIAL_SKILLS_COUNT);
-  const hasMoreSkills = skills.length > INITIAL_SKILLS_COUNT;
+  const displayedSkills = useMemo(
+    () => (showAllSkills ? skills : skills.slice(0, INITIAL_SKILLS_COUNT)),
+    [showAllSkills]
+  );
+
+  const hasMoreSkills = useMemo(() => skills.length > INITIAL_SKILLS_COUNT, []);
 
   return (
     <section className="py-20 bg-white dark:bg-gray-800 relative overflow-hidden">
@@ -56,25 +58,30 @@ export function SkillsSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
+          key={showAllSkills ? "all-skills" : "initial-skills"}
         >
-          <AnimatePresence>
-            {displayedSkills.map((skill, index) => {
+          <AnimatePresence mode="popLayout">
+            {displayedSkills.map((skill) => {
               const IconComponent =
                 SKILL_ICONS[skill.category.id as keyof typeof SKILL_ICONS] ||
                 Code;
 
               return (
                 <motion.div
-                  key={`${skill.name}-${index}`}
-                  variants={itemVariants}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.3, delay: index * 0.05 }}
+                  key={skill.name}
+                  layout
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.8 }}
+                  transition={{
+                    duration: 0.2,
+                    ease: "easeOut",
+                    layout: { duration: 0.3, ease: "easeInOut" },
+                  }}
                   whileHover={{
                     scale: 1.05,
                     rotate: [0, -1, 1, 0],
-                    transition: { duration: 0.3 },
+                    transition: { duration: 0.2 },
                   }}
                 >
                   <SkillCard skill={skill} icon={IconComponent} />

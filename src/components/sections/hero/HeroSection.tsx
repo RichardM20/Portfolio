@@ -54,10 +54,26 @@ export function HeroSection() {
     },
   ];
 
-  const handleDownloadCV = async () => {
+const handleDownloadCV = () => {
     try {
-      const response = await fetch(cvUrl);
-      const blob = await response.blob();
+      let blob: Blob;
+
+      if (cvUrl.startsWith("data:")) {
+      
+        const [header, base64Data] = cvUrl.split(",");
+        const mimeType = header.match(/:(.*?);/)?.[1] || "application/pdf";
+        const byteCharacters = atob(base64Data);
+        const byteNumbers = new Uint8Array(byteCharacters.length);
+        for (let i = 0; i < byteCharacters.length; i++) {
+          byteNumbers[i] = byteCharacters.charCodeAt(i);
+        }
+        blob = new Blob([byteNumbers], { type: mimeType });
+      } else {
+       
+        window.open(cvUrl, "_blank");
+        return;
+      }
+
       const url = window.URL.createObjectURL(blob);
       const link = document.createElement("a");
       link.href = url;
@@ -70,10 +86,10 @@ export function HeroSection() {
       window.URL.revokeObjectURL(url);
     } catch (error) {
       console.error("Error downloading CV:", error);
-
       window.open(cvUrl, "_blank");
     }
   };
+  
   return (
     <section className="container mx-auto px-4 py-20 relative overflow-hidden">
       <motion.div
